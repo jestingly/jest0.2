@@ -1,0 +1,14 @@
+
+			for ( let i=0; i<=31; i++ ) {
+				imageFiles.push( { category: 'HEAD', stem: 'head'+i, extension: 'GIF' } );
+			}
+			await this.gallery.loadImages(
+				imageFiles.concat([
+					{ category: 'HEAD', stem: 'head19', extension: 'PNG' },
+					{ category: 'HEAD', stem: 'head22', extension: 'PNG' },
+					{ category: 'BODY', stem: 'body', extension: 'PNG' },
+					{ category: 'BODY', stem: 'body2', extension: 'PNG' },
+					{ category: 'BODY', stem: 'body_black', extension: 'PNG' },
+					{ category: 'SWORD', stem: 'sword1', extension: 'PNG' }
+					])
+				);

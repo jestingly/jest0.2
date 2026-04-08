@@ -1,0 +1,54 @@
+/*==================================================
+  Jest Loadbar (Progress UI Element)
+==================================================*/
+.jest-loadbar {
+	display          : inline-block;
+	width            : 50px;
+	height           : 20px;
+	margin           : 5px 10px;
+	background-color : #333;
+	border-radius    : 2px;
+	overflow         : hidden;
+	box-shadow       :
+		inset 5px 5px 5px rgba( 0, 0, 0, 0.5 ),
+		0px 0px 10px rgba( 240, 240, 240, 0.1 );
+	border           : 1px solid #555;
+}
+
+/* Loadbar Fill Bar */
+.jest-loadbar .jest-loadbar-bar {
+	width            : 0%;
+	height           : 100%;
+	display          : flex;
+	justify-content  : center;
+	align-items      : center;
+	color            : white;
+	font-family      : Arial, Verdana, sans-serif;
+	font-weight      : normal;
+	text-shadow      : 0 0 5px #000;
+	border-radius    : 2px;
+	/*background       : linear-gradient( 90deg, #ee0000, #ff6347, #ee0000 );*/
+	background       : linear-gradient( 90deg, var(--brand-color), #ff6347, var(--brand-color) );
+	background-size  : 200% 200%;
+	box-shadow       : 0 0 10px rgba( 72, 239, 129, 0.8 );
+	animation        : gradient-move 3s infinite;
+	transition       : width 0.5s ease;
+}
+
+/* Loadbar Bar States */
+.jest-loadbar .jest-loadbar-bar.pending {
+	transition       : none;
+}
+.jest-loadbar .jest-loadbar-bar.tracking {
+	transition       : width 0.5s ease;
+}
+.jest-loadbar .jest-loadbar-bar.complete {
+	animation        : fiery-glow 0.8s ease-out, gradient-move 3s infinite;
+}
+
+/* Loadbar Text (Center-Aligned % Text) */
+.jest-loadbar .jest-loadbar-text {
+	z-index          : 2;
+	font-size        : 8px;
+	pointer-events   : none;
+}

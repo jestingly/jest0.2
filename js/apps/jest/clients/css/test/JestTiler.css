@@ -1,0 +1,305 @@
+/*==================================================
+  Main Level Editor Container
+==================================================*/
+.jest-viewport-tiler {
+	display        : flex;
+	flex-direction : column;
+	user-select    : none;
+}
+.jest-viewport-tiler.disabled {
+	opacity        : 50%;
+}
+.jest-tiler-interface {
+	/*display        : flex;
+	flex-direction : column;
+	gap            : 0;*/
+	font-family    : sans-serif;
+	/*height         : 100%;*/
+}
+
+.jest-tiler-interface .file-menu .file-select {
+	display        : none;
+}
+.jest-tiler-interface .file-view {
+	overflow       : auto;
+}
+
+
+/*==================================================
+  Root Viewport (Full Height Layout)
+==================================================*/
+.jest-tiler-viewport {
+	display         : flex;
+	flex-direction  : column;
+	width           : 100%;
+	height          : 100%;
+	min-height      : 0;
+	min-width       : 0;
+	overflow        : hidden;
+}
+
+/*==================================================
+  Top System Bar (Fixed Height)
+==================================================*/
+.jest-tiler-system {
+	flex            : 0 0 auto;
+	display         : flex;
+	align-items     : center;
+	padding         : 0;
+	background      : #333;
+	color           : white;
+	height          : auto;    /* OR fixed like 32px */
+}
+
+/*==================================================
+  Middle Content (Expands)
+==================================================*/
+.jest-tiler-interface {
+	display         : flex;
+	flex-direction  : row;
+	flex            : 1 1 auto;
+	min-height      : 0;
+	min-width       : 0;
+	width           : 100%;
+	height          : 100%;
+	overflow        : hidden;
+	background      : #1a1a1a;
+}
+
+
+/*==================================================
+  Bottom Status Bar Container
+==================================================*/
+.jest-tiler-status {
+	flex            : 0 0 auto;
+	display         : flex;
+	flex-direction  : column;
+	width           : 100%;
+	background      : #1a1a1a;
+	color           : #aaa;
+	padding         : 0;
+}
+
+/* Parent Flex Container */
+/*.jest-tiler-interface {
+	display          : flex;
+	flex-direction   : row;
+	width            : 100%;
+	height           : 100%;
+	overflow         : hidden;
+}*/
+
+/* Icon Dock (Far Left) */
+.jest-tiler-interface-dock {
+	flex             : 0 0 0px; /* fixed width */
+	height           : 100%;
+	background-color : #222; /* optional styling */
+	display          : flex;
+	flex-direction   : column;
+	align-items      : center;
+	justify-content  : start;
+}
+
+/* Left Sidebar */
+.jest-tiler-interface-left {
+	flex             : 0 0 0px; /* fixed width */
+	height           : 100%;
+	background-color : #2a2a2a;
+	overflow-y       : auto;
+}
+
+/* Center Working Area */
+.jest-tiler-interface-center {
+	display          : flex;
+	flex-direction   : column;
+	flex             : 1 1 auto; /* grow/shrink */
+	min-width        : 0; /* fix overflow issues */
+	min-height       : 0; /* important for overflow control */
+	height           : 100%;
+	background-color : #1a1a1a;
+	overflow         : hidden;
+	position         : relative;
+}
+
+/* Right Sidebar */
+.jest-tiler-interface-right {
+	flex             : 0 0 300px; /* fixed width */
+	height           : 100%;
+	/*background-color : #2f2f2f;*/
+	background       : #1a1a1a;
+	overflow-y       : auto;
+}
+
+
+/*==================================================
+  Various Element(s) & Global Style(s)
+==================================================*/
+.jest-viewport-tiler .jest-hide {
+	display        : none;
+}
+
+
+/*==================================================
+  Canvas and Tileset Combined Layout
+==================================================*/
+.jest-viewport-tiler .editor {
+	display        : flex;
+	gap            : 5px;
+	/*flex-direction : row;
+	align-items    : stretch;
+	height         : 100%;*/
+}
+
+
+/*==================================================
+  Fluid Layout (for editor)
+==================================================*/
+.jest-viewport-tiler {
+	width          : 100%;
+	height         : 100%;
+}
+.jest-viewport-interface {
+	display        : flex;
+	flex-direction : column;
+	height         : 100vh;
+}
+
+.jest-viewport-tiler .menu {
+	flex           : 0 0 auto;
+}
+
+.jest-viewport-tiler .editor {
+	/*overflow-y     : auto;*/
+	flex           : 1 1 auto; /* grow and shrink as needed */
+	min-height     : 0; /* avoid breaking scroll behavior */
+	overflow       : hidden; /* prevent canvas overflow */
+	position       : relative;
+}
+
+/*==================================================
+  Canvas Panel (Main Drawing Area)
+==================================================*/
+.jest-viewport-tiler .board {
+	flex           : 1 1 auto;
+	display        : block;
+	background     : #111;
+	border         : 1px solid #444;
+	cursor         : crosshair;
+	overflow       : auto;
+	/*max-width      : calc(100% - 200px);*/
+	max-height     : 100vh;
+	box-sizing     : border-box;
+	box-shadow     : 5px 5px 5px inset #000;
+	/* Background Style(s) */
+	background-image      :
+		linear-gradient( rgba(16,16,16,1), rgba(16,16,16,.98) ),
+		var(--diamond-bg);
+	background-size       : 1.8%;
+	background-repeat     : repeat;
+	background-position   : center;
+	background-attachment : fixed;
+	/*background-blend-mode : multiply;*/ /* or overlay/soft-light */
+}
+
+/*==================================================
+  Tileset Panel (Right Sidebar)
+==================================================*/
+.jest-viewport-tiler .sidebar {
+	display        : flex;
+	flex-direction : column;
+	width          : 200px;
+	min-width      : 180px;
+	background     : #222;
+	color          : white;
+	padding        : 0px;
+	box-sizing     : border-box;
+	overflow       : scroll;
+	max-height     : 100vh;
+	flex-shrink    : 0;
+	flex-grow      : 0;
+}
+
+/*==================================================
+  Tile Preview (Selected Tile Display)
+==================================================*/
+.jest-viewport-tiler .tile-preview {
+	padding        : 5px 10px;
+	margin-bottom  : 5px;
+	background     : #333;
+	color          : #fff;
+	font-weight    : bold;
+}
+
+
+/*==================================================
+  Tile List Container (Scrollable)
+==================================================*/
+.jest-viewport-tiler .tile-list {
+	display        : flex;
+	flex-direction : column;
+	overflow-y     : auto;
+	gap            : 4px;
+	flex-grow      : 1;
+	padding-right  : 5px;
+	max-height     : 100%;
+}
+
+
+/*==================================================
+  Tile Row (Each Horizontal Line of Tiles)
+==================================================*/
+.jest-viewport-tiler .tile-row {
+	display        : flex;
+	flex-direction : row;
+	gap            : 4px;
+}
+
+
+/*==================================================
+  Individual Tile Option Button
+==================================================*/
+.jest-viewport-tiler .tile-option {
+	width          : 32px;
+	height         : 32px;
+	background     : #555;
+	color          : white;
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	cursor         : pointer;
+	border         : 1px solid #222;
+	transition     : background 0.2s;
+	font-size      : 12px;
+}
+
+.jest-viewport-tiler .tile-option:hover {
+	background     : #777;
+}
+
+
+/*==================================================
+  Swatch Display(s)
+==================================================*/
+.jest-window-viewport .display.swatch {
+	background       : #111;
+	border           : 2px solid #333;
+	margin           : 6px 6px;
+	padding          : 0;
+	line-height      : 1px;
+	/*cursor           : pointer;*/
+	transition       : background 0.2s ease;
+	border-radius    : 3px;
+	box-shadow       : 2px 2px 2px 0px #111;
+}
+.jest-window-viewport .display.swatch-bg {
+	z-index          : 2;
+	position         : relative;
+	margin-left      : -18px;
+	top              : 5px;
+}
+.jest-window-viewport .display.swatch-fg {
+	z-index          : 3;
+	position         : relative;
+	/*margin-left      : -6px;*/
+	top              : -5px;
+}

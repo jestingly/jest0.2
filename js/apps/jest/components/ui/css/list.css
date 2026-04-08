@@ -1,0 +1,67 @@
+@layer components {
+	.jest-list {
+		display          : 'flex';
+		flex-direction   : 'column';
+		overflow-y       : 'auto'
+	}
+	.jest-list-item {
+		display          : flex;
+		align-items      : center;
+		padding          : 10px 8px;
+		cursor           : pointer;
+		user-select      : none;
+		font-size        : 0.80em;
+		color            : #bbb;
+		text-shadow      : 1px 1px 0px rgba(0,0,0,0.10);
+		border-bottom    : 1px solid rgba(0,0,0,0.4);
+		/*border-top: 1px solid rgba(255,255,255,0.05);*/
+	}
+	.jest-list-item.dragging {
+		opacity          : 0.5;
+	}
+	.jest-list-item.highlighted {
+		background-color : #444;
+		border-left      : 4px solid var(--brand-color);
+	}
+	.fold-toggle {
+		margin-right     : 6px;
+		cursor           : pointer;
+		user-select      : none;
+	}
+
+	.jest-list-item {
+		display          : 'flex';
+		align-items      : 'center';
+		gap              : '0.5em';
+	}
+	.jest-list-item.disabled {
+		opacity          : 0.5;
+		pointer-events   : none;
+	}
+
+	.jest-list-item.inactive {
+		opacity          : 0.7;
+		/*pointer-events: none;*/
+		color            : #777;
+		border-left      : 4px solid #888;
+	}
+
+	.jest-list-item.highlighted {
+		background       : #333;
+	}
+
+	.jest-list-item.hidden {
+		display          : none;
+	}
+
+	.jest-list::-webkit-scrollbar {
+		width            : 8px;
+	}
+	.jest-list::-webkit-scrollbar-thumb {
+		background       : #666;
+		border-radius    : 4px;
+	}
+	.jest-list::-webkit-scrollbar-track {
+		background       : transparent;
+	}
+}

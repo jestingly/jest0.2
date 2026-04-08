@@ -1,0 +1,86 @@
+[
+  {
+    "ts": 0,
+    "tx": 63,
+    "ty": 31,
+    "label": "Grass"
+  },
+  {
+    "ts": 0,
+    "tx": 62,
+    "ty": 19,
+    "label": "Dirt Patch"
+  },
+  {
+    "ts": 0,
+    "tx": 0,
+    "ty": 0,
+    "label": "Grass Blades (Left)"
+  },
+  {
+    "ts": 0,
+    "tx": 1,
+    "ty": 0,
+    "label": "Grass Blades (Right)"
+  },
+  {
+    "ts": 0,
+    "tx": 27,
+    "ty": 24,
+    "label": "Grass Pebble"
+  },
+  {
+    "ts": 0,
+    "tx": 0,
+    "ty": 1,
+    "label": "Flower"
+  },
+  {
+    "ts": 0,
+    "tx": 14,
+    "ty": 24,
+    "label": "Shallow Water"
+  },
+  {
+    "ts": 0,
+    "tx": 2,
+    "ty": 20,
+    "label": "Deep Water"
+  },
+  {
+    "ts": 0,
+    "tx": 4,
+    "ty": 31,
+    "label": "Shallow Water Pebble"
+  },
+  {
+    "ts": 0,
+    "tx": 5,
+    "ty": 31,
+    "label": "Shallow Water Grooves"
+  },
+  {
+    "ts": 0,
+    "tx": 13,
+    "ty": 18,
+    "label": "Rough Soil"
+  },
+  {
+    "ts": 0,
+    "tx": 8,
+    "ty": 0,
+    "label": "Soil Pebble"
+  },
+  {
+    "ts": 0,
+    "tx": 15,
+    "ty": 0,
+    "label": "Soil Stone"
+  },
+  {
+    "ts": 0,
+    "tx": 10,
+    "ty": 10,
+    "label": "Soil"
+  }
+]

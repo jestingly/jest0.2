@@ -1,0 +1,74 @@
+/* Globals */
+.block  { display: block !important; }
+.hidden { display: none !important; }
+
+/*============================
+  Disable Focus Outline
+============================*/
+a, a:visited, a:hover, a:active {
+	color: var(--brand-color);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+*:focus {
+	outline: none !important;
+}
+
+/* Remove outline for mouse-only users */
+:focus:not(:focus-visible) {
+	outline: none !important;
+}
+
+/*============================
+  Style Scrollbars
+============================*/
+/* Whole scrollbar */
+::-webkit-scrollbar {
+	width            : 12px; /* vertical scrollbar */
+	height           : 12px; /* horizontal scrollbar */
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+	background       : #1e1e1e;
+}
+
+/* Thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+	background-color : #555;
+	border-radius    : 6px;
+	border           : 3px solid #1e1e1e;
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+	background-color : #888;
+}
+
+/* Scrollbars joint */
+::-webkit-scrollbar-corner {
+    background-color: #1e1e1e; /* or any color you want */
+}
+
+/*============================
+  Disable Text Selection Globally
+============================*/
+body {
+	-webkit-user-select: none;		/* Chrome, Safari */
+	-moz-user-select: none;			/* Firefox */
+	-ms-user-select: none;			/* IE/Edge */
+	user-select: none;				/* Standard */
+}
+
+/*============================
+  Allow Text Selection in Inputs
+============================*/
+input,
+textarea {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}

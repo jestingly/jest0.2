@@ -1,0 +1,76 @@
+[
+  {
+    "created": 1751889432040,
+    "action": "levelMarquee",
+    "w": 2,
+    "h": 2,
+    "name": "Walkway Interior",
+    "region": {
+      "matrix": [
+        [
+          {
+            "ts": 0,
+            "tx": 57,
+            "ty": 11
+          },
+          {
+            "ts": 0,
+            "tx": 58,
+            "ty": 11
+          }
+        ],
+        [
+          {
+            "ts": 0,
+            "tx": 57,
+            "ty": 10
+          },
+          {
+            "ts": 0,
+            "tx": 58,
+            "ty": 10
+          }
+        ]
+      ]
+    },
+    "id": "levelMarquee_3",
+    "type": "fill"
+  },
+  {
+    "created": 1751889484818,
+    "action": "levelMarquee",
+    "w": 2,
+    "h": 2,
+    "name": "Walkway Perimeter",
+    "region": {
+      "matrix": [
+        [
+          {
+            "ts": 0,
+            "tx": 63,
+            "ty": 6
+          },
+          {
+            "ts": 0,
+            "tx": 63,
+            "ty": 6
+          }
+        ],
+        [
+          {
+            "ts": 0,
+            "tx": 63,
+            "ty": 4
+          },
+          {
+            "ts": 0,
+            "tx": 59,
+            "ty": 10
+          }
+        ]
+      ]
+    },
+    "id": "levelMarquee_4",
+    "type": "stroke"
+  }
+]

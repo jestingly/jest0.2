@@ -1,0 +1,285 @@
+@layer components {
+	/*-----------------------------------
+	  Object Selector Layout
+	-----------------------------------*/
+	.object-selector {
+		background       : #1e1e1e;
+		border           : 1px solid #333;
+		border-radius    : 0 0 6px 6px;
+		display          : flex;
+		flex-direction   : column;
+		gap              : 10px;
+		padding          : 10px;
+		margin           : 5px;
+	}
+
+	.selector-detail {
+		font-family      : monospace;
+		font-size        : 12px;
+		background       : #0f0f0f;
+		color            : #ccc;
+		padding          : 6px;
+		border           : 1px solid #333;
+		border-radius    : 4px;
+		min-height       : 16px;
+		white-space      : pre-wrap;
+		word-break       : break-word;
+		text-align       : center;
+		box-sizing       : border-box;
+	}
+
+	.selector-detail,
+	.selector-detail canvas {
+		display          : inline-block;
+		vertical-align   : bottom;
+		display          : block;
+		width            : 100%; /* Scales responsively */
+		height           : auto !important; /* Maintains aspect ratio */
+		max-width        : 100%; /* Prevents overflow */
+		image-rendering  : pixelated; /* For pixel art */
+	}
+
+	.object-selector .selector-detail .display.disabled {
+		display          : none !important;
+	}
+
+	.sidebar-content .input {
+		width            : 100%;
+		box-sizing       : border-box;
+	}
+	.sidebar-content .input-select select,
+	.sidebar-content .range input[type="range"] {
+		flex             : 1;
+		width            : 100%;
+	}
+	.sidebar-content .range-value {
+		flex-shrink      : 0;
+	}
+	/*.jest-panel {
+		box-sizing: border-box;
+		width: 100%;
+	}*/
+
+	/*-----------------------------------
+	  Selector Buttons
+	-----------------------------------*/
+	.selector-buttons .toolbar {
+		display          : block;
+	}
+
+	.selector-buttons {
+		/* display       : flex;
+		   justify-content : flex-end; */
+	}
+
+	.selector-buttons button {
+		display          : block;
+		width            : 100%;
+		font-size        : 16px;
+		letter-spacing   : 2px;
+		text-transform   : uppercase;
+		background       : #111;
+		color            : #e0e0e0;
+		border           : none;
+		border-radius    : 3px;
+		padding          : 6px 10px;
+		cursor           : pointer;
+		box-shadow       : 2px 2px 2px 0px #111;
+		transition       : transform 0.3s cubic-bezier(.34,1.56,.64,1);
+		margin           : 5px 0;
+	}
+	.selector-buttons button.disabled {
+		background       : var(--color-ui);
+		color            : #444;
+	}
+	.selector-buttons button.disabled:hover {
+		background       : var(--color-ui) !important;
+		color            : #444;
+		transform        : scale(1);
+		z-index          : 0;
+	}
+
+	.selector-buttons button:hover {
+		background       : #666;
+		background       : #ff0033 !important;
+		color            : #fff;
+		transform        : scale(1.08);
+		z-index          : 100;
+	}
+
+	.selector-buttons button:active {
+		box-shadow       : none;
+		transform        : scale(1.0);
+		top              : 2px;
+		left             : 2px;
+	}
+
+	.selector-buttons button.active {
+		background       : #d00;
+		color            : #fff;
+		font-weight      : bold;
+		cursor           : default;
+	}
+
+	.selector-buttons button:hover.active,
+	.selector-buttons button:hover.disabled {
+		transform        : none;
+	}
+
+	/*-----------------------------------
+	  Predefined Object Display
+	-----------------------------------*/
+	.predefined-object {
+		background       : var(--brand-black);
+		border           : 1px solid #333;
+		padding          : 6px;
+		border-radius    : 4px;
+		font-size        : 12px;
+		color            : #ccc;
+	}
+
+	.object-id,
+	.object-type {
+		font-weight      : bold;
+		margin-bottom    : 4px;
+	}
+
+	.object-data {
+		white-space      : pre-wrap;
+		font-family      : monospace;
+		background       : #0f0f0f;
+		padding          : 4px;
+		border           : 1px solid #222;
+		border-radius    : 3px;
+	}
+
+	/*-----------------------------------
+	  Form Layout Logic
+	-----------------------------------*/
+	.selector-detail .display.jest-panel {
+		width            : 100%;
+	}
+
+	.selector-detail .form.jest-panel {
+		display          : flex;
+		flex-direction   : column;
+		width            : 100%;
+		gap              : 8px;
+	}
+
+	.selector-detail .input.text.jest-panel {
+		display          : flex;
+		align-items      : center;
+		width            : 100%;
+	}
+
+	.selector-detail .input.text.jest-panel label {
+		width            : 100px;
+		min-width        : 80px;
+		text-align       : right;
+		margin-right     : 8px;
+	}
+
+	.selector-detail .input.text.jest-panel input {
+		flex             : 1;
+		width            : 100%;
+		padding          : 6px 10px;
+		border           : 1px solid #aaa;
+		border-radius    : 4px;
+		box-sizing       : border-box;
+	}
+
+	.selector-detail label {
+		width           : 50px; /* or use percentage like 30% */
+		min-width       : 50px;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 11px;
+	}
+
+	.selector-detail select,
+	.selector-detail input {
+		flex            : 1;
+		width           : 100%;
+		padding         : 10px;
+		margin          : 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #100;
+		color           : #edd;
+		transition      : all 0.15s ease;
+		box-sizing      : border-box;
+	}
+	.selector-detail input {
+		background      : #020;
+		color           : #0e0;
+		/*font-weight     : bold;*/
+	}
+	.selector-detail input:hover:not(:read-only) {
+		background      : #444;
+		color           : #eee;
+	}
+	.selector-detail input[type="text"]:read-only,
+	.selector-detail input[type="number"]:read-only,
+	.selector-detail input[type="email"]:read-only,
+	.selector-detail input[type="submit"]:read-only,
+	.selector-detail input[type="button"]:read-only,
+	.selector-detail input[type="file"]:read-only {
+		pointer-events  : none;
+		/*background      : #100;
+		color           : #eee;*/
+		background      : #111;
+		color           : #777;
+		border          : 1px solid #777 !important;
+	}
+	.selector-detail .input.text.jest-panel.unsaved input,
+	.selector-detail .input.number.jest-panel.unsaved input {
+		background      : #200;
+		color           : #e00;
+		font-weight     : bold;
+	}
+
+	/*-----------------------------------
+	  Match Textarea to Input Field Style
+	-----------------------------------*/
+	.selector-detail .input.textarea.jest-panel {
+		display          : flex;
+		align-items      : center;
+		width            : 100%;
+	}
+
+	.selector-detail .input.textarea.jest-panel label {
+		width            : 100px;
+		min-width        : 80px;
+		text-align       : right;
+		margin-right     : 8px;
+	}
+
+	.selector-detail .input.textarea.jest-panel textarea {
+		flex             : 1;
+		width            : 100%;
+		min-height       : 60px; /* adjustable if needed */
+		padding          : 6px 10px;
+		border           : 1px solid #aaa;
+		border-radius    : 4px;
+		box-sizing       : border-box;
+		resize           : vertical;
+		background       : #020;
+		color            : #0e0;
+		font-size        : 1em;
+		transition       : all 0.15s ease;
+	}
+
+	.selector-detail .input.textarea.jest-panel textarea:hover {
+		background       : #444;
+		color            : #eee;
+	}
+
+	.selector-detail .input.textarea.jest-panel.unsaved textarea {
+		background       : #200;
+		color            : #e00;
+		font-weight      : bold;
+	}
+}

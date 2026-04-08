@@ -1,0 +1,7 @@
+.DS_Store
+workshop/
+node_modules/
+dist/
+.env
+node_modules/
+.DS_Store

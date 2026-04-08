@@ -1,0 +1,298 @@
+@layer components {
+	/*-----------------------------
+	  Form Wrapper
+	-----------------------------*/
+	.sidebar-content .menu.form {
+		display				: flex;
+		flex-direction		: column;
+		gap					: 10px;
+		align-items		 : normal;
+		/*margin			  : 0 10px 10px;*/
+	}
+
+	/*-----------------------------
+	  Input Checkbox
+	-----------------------------*/
+	.sidebar-content .input.checkbox {
+		display				: flex;
+		align-items			: center;
+		align-self		  : stretch;
+		justify-content	 : center;
+		gap					: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		transition			: background 0.3s ease;
+		box-shadow			: 0 0 4px rgba( 255, 0, 255, 0.1 ),
+							  4px 4px 4px rgba( 0, 0, 0, var(--opacity-disabled) );
+	}
+
+	.sidebar-content .input.checkbox:hover {
+		background			: #222;
+		/*box-shadow			: 0 0 5px rgba(255,0,255,0.25);*/
+	}
+
+	/*-----------------------------
+	  Label Styling
+	-----------------------------*/
+	.sidebar-content .input.checkbox label {
+		color				: #ccc;
+		font-weight			: 500;
+		cursor				: pointer;
+		user-select			: none;
+		transition			: color 0.3s ease;
+		text-shadow		 : 1px 1px 1px rgba( 0, 0, 0, 0.9 );
+		margin-right		: 4px;
+	}
+
+	.sidebar-content .input.checkbox:hover label {
+		color				: #fff;
+	}
+
+	/*-----------------------------
+	  Checkbox(es)
+	-----------------------------*/
+	.sidebar-content .input.checkbox input[type="checkbox"] {
+		width				: 18px;
+		height				: 18px;
+		border-radius		: 4px;
+		border				: 1px solid #444;
+		background			: #111;
+		appearance			: none;
+		cursor				: pointer;
+		transition			: all 0.2s ease;
+		position			: relative;
+		box-shadow			: inset 0 0 3px rgba( 255, 0, 51, 0.15 );
+		margin			  : 0;
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]:checked {
+		background			: #ff0033;
+		border-color		: #c01;
+		box-shadow			: 0 0 6px rgba( 255, 0, 51, var(--opacity-disabled) );
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]::after {
+		content				: '';
+		position			: absolute;
+		top					: 2px;
+		left				: 5px;
+		width				: 5px;
+		height				: 10px;
+		border				: solid #000;
+		border-width		: 0 2px 2px 0;
+		transform			: rotate( 45deg );
+		opacity				: 0;
+		transition			: opacity 0.2s ease;
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]:checked::after {
+		opacity				: 1;
+	}
+
+
+	/*-----------------------------
+	  Range Slider(s)
+	  -----------------------------*/
+	.sidebar-content .range {
+		display				: flex;
+		align-items			: center;
+		gap					: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		box-shadow			: 0 0 4px rgba(255,0,255,0.1),
+							  4px 4px 4px rgba(0,0,0,var(--opacity-disabled));
+		transition			: background 0.3s ease;
+	}
+
+	.sidebar-content .range:hover {
+		background			: #222;
+		/*box-shadow			: 0 0 5px rgba(255,0,255,0.25);*/
+	}
+
+	.sidebar-content .range input[type="range"] {
+		width				: 100%;
+		flex-grow			: 1;
+		margin				: 0;
+	}
+
+	.sidebar-content .range .range-value {
+		display				: inline-block;
+		font-family			: monospace;
+		font-size			: 13px;
+		color				: #ccc;
+		margin-left			: 4px;
+		min-width			: 24px;		/* reserve space for 2-3 digits */
+		text-align			: center;
+	}
+
+	/*-----------------------------
+	  Label Styling
+	-----------------------------*/
+	.sidebar-content .range label {
+		color				: #ccc;
+		font-weight			: 500;
+		cursor				: pointer;
+		user-select			: none;
+		transition			: color 0.3s ease;
+		margin-right		: 4px;
+		text-shadow		 : 1px 1px 1px rgba(0,0,0,0.9);
+	}
+
+	.sidebar-content .range:hover label {
+		color				: #fff;
+	}
+
+	/*-----------------------------
+	  Input Slider Itself
+	-----------------------------*/
+	.sidebar-content .range input[type="range"] {
+		-webkit-appearance	: none;
+		width				: 100%;
+		height				: 6px;
+		background			: #000;
+		border-radius		: 3px;
+		outline				: none;
+		/*box-shadow			: 0 0 4px rgba(0,255,0,0.4);*/
+		position			: relative;
+		cursor				: pointer;
+		border-bottom	   : 1px solid rgba( 255, 255, 255, 0.2 );
+	}
+
+	.sidebar-content .range input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance	: none;
+		width				: 16px;
+		height				: 16px;
+		background			: #f00;
+		border				: 1px solid #900;
+		border-radius		: 50%;
+		box-shadow			: 0 0 4px rgba(255,0,0,var(--opacity-disabled)),
+							  2px 2px 2px rgba(0,0,0,0.3);
+		transition			: transform 0.2s ease;
+		position			: relative;
+	}
+
+	.sidebar-content .range input[type="range"]::-webkit-slider-thumb:hover {
+		transform			: scale(1.2);
+		box-shadow			: 0 0 6px rgba(255,0,51,0.75);
+	}
+
+	.sidebar-content .range input[type="range"]::-moz-range-thumb {
+		width				: 16px;
+		height				: 16px;
+		background			: #ff0033;
+		border				: 1px solid #900;
+		border-radius		: 50%;
+		box-shadow			: 0 0 4px rgba(255,0,51,var(--opacity-disabled)),
+							  2px 2px 2px rgba(0,0,0,0.3);
+		cursor				: pointer;
+	}
+
+	/*-----------------------------
+	  Value Label
+	-----------------------------*/
+	.sidebar-content .range .range-value {
+		color				: #ff0033;
+		font-family			: monospace;
+		font-size			: 13px;
+		font-weight		 : bold;
+		min-width			: 30px;
+		text-align			: right;
+		text-shadow		 : 1px 1px 1px rgba( 0, 0, 0, 0.9 );
+	}
+
+	/* Restore slider visuals by overriding bad input styles */
+	.sidebar-content .range input[type="range"] {
+		-webkit-appearance	: none;
+		background			: #000 !important;
+		height				: 6px !important;
+		padding				: 0 !important;
+		margin				: 0 !important;
+		border				: none !important;
+		/*box-shadow			: 0 0 4px rgba(0,255,0,0.4) !important;*/
+		border-radius		: 3px !important;
+		cursor				: pointer;
+		pointer-events	  	: auto !important;
+	}
+
+
+
+
+	.sidebar-content .numeric-range {
+		display		 		: flex;
+		align-items	 		: center;
+		gap			 		: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		box-shadow			: 0 0 4px rgba(255,0,255,0.1),
+								4px 4px 4px rgba(0,0,0,var(--opacity-disabled));
+	}
+
+	.sidebar-content .numeric-range .range {
+		flex-grow			: 1;
+	}
+
+	.sidebar-content .numeric-range .number {
+		width				: 60px;
+	}
+
+	.sidebar-content .numeric-range .number input[type="number"] {
+		background			: #111;
+		color				: #ff0033;
+		border				: 1px solid #333;
+		border-radius		: 6px;
+		padding				: 4px 6px;
+		font-family			: monospace;
+		font-size			: 13px;
+		font-weight			: bold;
+		text-align			: right;
+		width				: 60px;
+		box-shadow			: inset 0 0 4px rgba( 255, 0, 0, 0.2 );
+	}
+
+	.sidebar-content .numeric-range .number input[type="number"] {
+		appearance			: textfield;
+		-moz-appearance		: textfield;
+		background			: transparent;
+		background			: #111;
+		border				: none;
+		color				: #ff0033;
+		font-family			: monospace;
+		font-weight			: bold;
+		font-size			: 13px;
+		width				: 30px;
+		text-align			: right;
+	}
+
+	.sidebar-content .numeric-range .number-container {
+		display				: flex;
+		align-items			: center;
+	}
+
+	.sidebar-content .step-button > button {
+		all					: unset;   /* kill browser defaults */
+		display				: flex;
+		align-items			: center;
+		justify-content		: center;
+		width				: 24px;
+		height				: 18px;
+		background			: #111;
+		color				: #ff0033;
+		border				: 1px solid #333;
+		border-radius		: 4px;
+		font-size			: 12px;
+		cursor				: pointer;
+		box-shadow			: inset 0 0 2px rgba( 255, 0, 0, 0.2 );
+	}
+
+	.sidebar-content .step-button > button:hover {
+		background			: #181818;
+		box-shadow			: 0 0 4px rgba( 255, 0, 51, 0.6 );
+	}
+
+}

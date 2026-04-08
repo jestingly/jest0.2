@@ -1,0 +1,3695 @@
+/* --- BEGIN css/vars.css --- */
+:root {
+	--brand-black				: #171717;
+	--brand-white				: #cecece;
+	--brand-color				: rgba( 254, 2, 0, 1 ); /*#ff0033;*/
+	--color-text				: #00ff00;
+	--color-bg					: #000000;
+	--color-ui					: #1a1a1a;
+	--color-accent				: #00cc66;
+	--font-base					: sans-serif;
+	--font-size-base			: 1rem;
+	--font-size-sm				: 0.875rem;
+	--font-size-lg				: 1.25rem;
+	--border-radius				: 0.5rem;
+	--shadow-sm					: 0 1px 2px rgba(0,0,0,0.1);
+	--shadow-md					: 0 4px 6px rgba(0,0,0,0.1);
+	--transition				: all 0.3s ease;
+	--gap						: 1rem;
+	--padding					: 1rem;
+	--padding-lg				: 2rem;
+	--opacity-disabled			: 0.5;
+	--border-radius-dashboard	: 0.75em;
+}
+
+/* --- BEGIN css/vars_remote.css --- */
+:root {
+	--diamond-bg      : url( "https://jesterly.net/sandbox/images/ui/bg_diamond.png" );
+}
+
+/* --- BEGIN css/animation.css --- */
+/* --------------------- */
+/* Animations            */
+/* --------------------- */
+/* Dropping With Bounce */
+@keyframes slideDownBounce {
+	0% {
+		transform: translateY( -20px );
+	}
+	50% {
+		transform: translateY( 10px );
+	}
+	100% {
+		transform: translateY( 0 );
+	}
+}
+
+/* Shrink Down & Bounce */
+/* @ex - animation: bounceShrink 0.25s ease-out; */
+@keyframes bounceShrink {
+	0%   { transform: scale(1.08); }
+	40%  { transform: scale(0.94); }
+	70%  { transform: scale(1.02); }
+	100% { transform: scale(1); }
+}
+
+/* Shrinking & Growing Oscillation */
+@keyframes growShrink {
+	0% {
+		transform: scale( 0.9 ); /* Original size */
+	}
+	50% {
+		transform: scale( 1.1 ); /* Grow to 1.5x */
+	}
+	100% {
+		transform: scale( 0.9 ); /* Shrink back to original size */
+	}
+}
+
+/* Apply this to the element */
+.jest-ani-oscillate {
+	display: inline-block; /* Ensures the animation works correctly on inline elements */
+	animation: growShrink 1s ease-in-out infinite;
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradient-move {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Keyframes for pulse effect */
+@keyframes green-pulse {
+	0% {
+		transform: scale( 1 );
+		box-shadow: 0 0 20px rgba( 72, 239, 129, 1 );
+	}
+	50% {
+		transform: scale( 1.1 );
+		box-shadow: 0 0 40px rgba( 72, 239, 129, 1 );
+	}
+	100% {
+		transform: scale( 1 );
+		box-shadow: 0 0 20px rgba( 72, 239, 129, 0.8 );
+	}
+}
+
+/* Fiery glow animation */
+@keyframes fiery-glow {
+	0% {
+		transform: scale( 1 );
+		box-shadow: 0 0 20px rgba( 255, 22, 0, 1 ); /* Fiery orange glow */
+	}
+	50% {
+		transform: scale( 1.1 );
+		box-shadow: 0 0 40px rgba( 255, 22, 0, 1 ); /* Larger fiery glow */
+	}
+	100% {
+		transform: scale( 1 );
+		box-shadow: 0 0 20px rgba( 255, 22, 0, 0.8 ); /* Subtle fade */
+	}
+}
+
+/* --------------------- */
+/* Visibility Animations */
+/* --------------------- */
+/* Fade-in animation */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+/* ------------------------ */
+/* Shrink & Grow Animations */
+/* ------------------------ */
+/* Minimize animation */
+@keyframes minimize {
+	0% {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.8) translateY(300px);
+		opacity: 0;
+	}
+}
+
+/* Maximize animation */
+@keyframes expand {
+	0% {
+		transform: scale(0.8) translateY(300px);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+}
+
+/* Expand Then Shrink Back to Normal Size */
+@keyframes pulse {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+/* ------------------------ */
+/* Bounce & Leap            */
+/* ------------------------ */
+/* Jump Animation */
+@keyframes jump {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+
+/*------------------------------------------------------------
+	ANIMATED SLANTED STRIPES BACKGROUND
+------------------------------------------------------------*/
+/* Apply to the target container (e.g., body, #app, etc.) */
+.jest-ani-stripes {
+	/* Full container coverage */
+	width             : 100%;
+	height            : 100%;
+	/* Slanted dark stripes using a diagonal gradient */
+	background-image  :
+		repeating-linear-gradient(
+			-45deg,					/* ← slant angle */
+			#111 0px,				/* dark stripe start */
+			#111 10px,				/* dark stripe width */
+			#1a1a1a 10px,			/* spacer stripe start */
+			#1a1a1a 20px			/* spacer stripe width */
+			);
+	/* Set background size (repeating step size) */
+	background-size   : 28.28px 28.28px;
+	/* Start position for smooth looping */
+	background-position: 0 0;
+	/* Animate using custom keyframes */
+	animation         : jestStripesScroll 1s linear infinite;
+}
+
+/*------------------------------------------------------------
+	KEYFRAMES: Stripes scroll horizontally to the right
+------------------------------------------------------------*/
+@keyframes jestStripesScroll {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 28.28px 0; /* Shift right by one stripe unit */
+	}
+}
+
+/*------------------------------------------------------------
+	KEYFRAMES: Stripes scroll horizontally to the right
+------------------------------------------------------------*/
+.jest-ani-fade-oscillate {
+	/* Animate using custom keyframes */
+	animation         : jestFadeOscillate 3s linear infinite;
+}
+
+@keyframes jestFadeOscillate {
+	0%, 100% {
+		opacity: 35%;
+	}
+	25%, 75% {
+		opacity: 50%;
+	}
+	50% {
+		opacity: 60%;
+	}
+}
+
+/* --- BEGIN css/applet.css --- */
+/* Globals */
+.block  { display: block !important; }
+.hidden { display: none !important; }
+
+/*============================
+  Disable Focus Outline
+============================*/
+a, a:visited, a:hover, a:active {
+	color: var(--brand-color);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+*:focus {
+	outline: none !important;
+}
+
+/* Remove outline for mouse-only users */
+:focus:not(:focus-visible) {
+	outline: none !important;
+}
+
+/*============================
+  Style Scrollbars
+============================*/
+/* Whole scrollbar */
+::-webkit-scrollbar {
+	width            : 12px; /* vertical scrollbar */
+	height           : 12px; /* horizontal scrollbar */
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+	background       : #1e1e1e;
+}
+
+/* Thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+	background-color : #555;
+	border-radius    : 6px;
+	border           : 3px solid #1e1e1e;
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+	background-color : #888;
+}
+
+/* Scrollbars joint */
+::-webkit-scrollbar-corner {
+    background-color: #1e1e1e; /* or any color you want */
+}
+
+/*============================
+  Disable Text Selection Globally
+============================*/
+body {
+	-webkit-user-select: none;		/* Chrome, Safari */
+	-moz-user-select: none;			/* Firefox */
+	-ms-user-select: none;			/* IE/Edge */
+	user-select: none;				/* Standard */
+}
+
+/*============================
+  Allow Text Selection in Inputs
+============================*/
+input,
+textarea {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/* --- BEGIN css/forms.css --- */
+/* Globals */
+.block  { display: block !important; }
+.hidden { display: none !important; }
+
+/*============================
+  Select Element
+============================*/
+select {
+	padding          : 4px;
+	background       : #111;
+	color            : #fff;
+	border           : 1px solid #444;
+}
+select {
+	padding         : 12px 16px;
+	background-color: #111;
+	background-image: linear-gradient(145deg, #181818, #101010);
+	color           : #eee;
+	border          : 1px solid #2a2a2a;
+	border-radius   : 6px;
+	box-shadow      : 0 0 4px rgba(0,0,0,0.5), inset 0 0 0 1px #000;
+	font-size       : 13px;
+	font-family     : 'Segoe UI', sans-serif;
+	appearance      : none;             /* ✅ Removes native dropdown arrow */
+	background-position: right 10px center;
+	background-repeat: no-repeat;
+	background-size : 12px;
+	cursor          : pointer;
+	transition      : background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Arrow Icon Using SVG (optional fallback) */
+select {
+	background-image:
+		url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white'><polygon points='4,6 8,10 12,6'/></svg>");
+}
+
+/* Optional focus styling */
+select:focus {
+	outline         : none;
+	border-color    : var(--brand-color);
+	box-shadow      : 0 0 0 2px rgba(255,0,51,0.25);
+}
+
+/* Optional hover */
+select:hover {
+	background-color: #161616;
+}
+
+/* --- BEGIN js/widgets/loadbar/css/loadbar.css --- */
+/*==================================================
+  Jest Loadbar (Progress UI Element)
+==================================================*/
+.jest-loadbar {
+	display          : inline-block;
+	width            : 50px;
+	height           : 20px;
+	margin           : 5px 10px;
+	background-color : #333;
+	border-radius    : 2px;
+	overflow         : hidden;
+	box-shadow       :
+		inset 5px 5px 5px rgba( 0, 0, 0, 0.5 ),
+		0px 0px 10px rgba( 240, 240, 240, 0.1 );
+	border           : 1px solid #555;
+}
+
+/* Loadbar Fill Bar */
+.jest-loadbar .jest-loadbar-bar {
+	width            : 0%;
+	height           : 100%;
+	display          : flex;
+	justify-content  : center;
+	align-items      : center;
+	color            : white;
+	font-family      : Arial, Verdana, sans-serif;
+	font-weight      : normal;
+	text-shadow      : 0 0 5px #000;
+	border-radius    : 2px;
+	/*background       : linear-gradient( 90deg, #ee0000, #ff6347, #ee0000 );*/
+	background       : linear-gradient( 90deg, var(--brand-color), #ff6347, var(--brand-color) );
+	background-size  : 200% 200%;
+	box-shadow       : 0 0 10px rgba( 72, 239, 129, 0.8 );
+	animation        : gradient-move 3s infinite;
+	transition       : width 0.5s ease;
+}
+
+/* Loadbar Bar States */
+.jest-loadbar .jest-loadbar-bar.pending {
+	transition       : none;
+}
+.jest-loadbar .jest-loadbar-bar.tracking {
+	transition       : width 0.5s ease;
+}
+.jest-loadbar .jest-loadbar-bar.complete {
+	animation        : fiery-glow 0.8s ease-out, gradient-move 3s infinite;
+}
+
+/* Loadbar Text (Center-Aligned % Text) */
+.jest-loadbar .jest-loadbar-text {
+	z-index          : 2;
+	font-size        : 8px;
+	pointer-events   : none;
+}
+
+/* --- BEGIN js/system/window/css/BaseWindow.css --- */
+/* ------------------------- */
+/* Base Window Styles        */
+/* ------------------------- */
+.jest-window {
+	animation         : fadeIn 0.5s ease;
+	position          : fixed;
+	top               : 0;
+	left              : 0;
+	background-color  : rgba( 34, 34, 34, 1 );
+	color             : #eee;
+	/*border-radius     : 8px;*/
+	box-shadow        : 0 4px 10px rgba( 0, 0, 0, 0.5 );
+	z-index           : 9999;
+	display           : flex;
+	flex-direction    : column;
+	overflow          : hidden;
+	transition        : none;
+
+	/* Jest Harlequin Background */
+	box-sizing            : border-box;
+	box-shadow            : 5px 5px 5px inset #000;
+	/* Background Style(s) */
+	background-image      :
+		linear-gradient( rgba(16,16,16,1), rgba(16,16,16,.98) ),
+		var(--diamond-bg);
+	background-size       : 1.8%;
+	background-repeat     : repeat;
+	background-position   : center;
+	background-attachment : fixed;
+}
+
+/* ------------------------- */
+/* Base Window States        */
+/* ------------------------- */
+.jest-window.transitioning,
+.jest-window.transitioning .jest-panel:not(.jest-freezeframe) {
+	transition        :
+		transform 0.3s ease,
+		background-color 0.3s ease,
+		font-size 0.3s ease,
+		opacity 0.3s ease,
+		height 0.3s ease,
+		width 0.3s ease,
+		top 0.3s ease,
+		right 0.3s ease,
+		bottom 0.3s ease,
+		left 0.3s ease;
+}
+.jest-window.minimized .jest-panel:not(.jest-freezeframe) {
+	height            : 0;
+	overflow          : hidden;
+	display           : none;
+}
+.jest-window.minimized {
+	background-color  : rgba( 34, 34, 34, 0.6 );
+}
+.jest-window.minimized .jest-panel {
+	font-size         : 10px;
+	background        : none;
+}
+/*.jest-window.minimized .jest-panel {
+	height: 0;
+	overflow: hidden;
+	display: none;
+}*/
+.jest-window.minimized {
+	/*opacity: 0.5;
+	transform: translate(25%,calc(100vh-75%)) scale(0.5);
+	bottom: 0; left: 0;*/
+	/*pointer-events: none;*/
+}
+.jest-window.maximized {
+	/*opacity: 1;
+	transform: translate( 0, 0 ) scale( 1 );
+	pointer-events: all;
+	top: 0; left: 0;*/
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+}
+
+
+/* ------------------------- */
+/* Window Styles             */
+/* ------------------------- */
+/* Window Controls */
+.jest-window-controls {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.jest-window-controls button {
+    background: #444;
+    color: #eee;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.jest-window-controls button:hover {
+    transform: scale(1.1);
+    background: #f55;
+}
+
+
+/* ------------------------- */
+/* Window Styles             */
+/* ------------------------- */
+/* Dragging styles */
+.jest-window {
+    position: fixed; /* Ensure draggable positioning */
+    cursor: default;
+}
+/* Resize handles */
+.resize-handle {
+    position: absolute;
+    background: transparent;
+    z-index: 10;
+}
+.resize-top {
+    top: 0; left: 0; right: 0; height: 5px; cursor: ns-resize;
+}
+.resize-right {
+    top: 0; right: 0; bottom: 0; width: 5px; cursor: ew-resize;
+}
+.resize-bottom {
+    bottom: 0; left: 0; right: 0; height: 5px; cursor: ns-resize;
+}
+.resize-left {
+    top: 0; left: 0; bottom: 0; width: 5px; cursor: ew-resize;
+}
+.resize-top-left {
+    top: 0; left: 0; width: 10px; height: 10px; cursor: nwse-resize;
+}
+.resize-top-right {
+    top: 0; right: 0; width: 10px; height: 10px; cursor: nesw-resize;
+}
+.resize-bottom-left {
+    bottom: 0; left: 0; width: 10px; height: 10px; cursor: nesw-resize;
+}
+.resize-bottom-right {
+    bottom: 0; right: 0; width: 10px; height: 10px; cursor: nwse-resize;
+}
+
+/* --- BEGIN js/system/window/css/Window.css --- */
+/* ------------------------- */
+/* Window Styles             */
+/* ------------------------- */
+/* Window Controls */
+.jest-window-controls {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.jest-window-controls button {
+    background: #444;
+    color: #eee;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.jest-window-controls button:hover {
+    transform: scale(1.1);
+    background: #f55;
+}
+
+
+/* ------------------------- */
+/* Window Styles             */
+/* ------------------------- */
+/* Dragging styles */
+.jest-window {
+    position: fixed; /* Ensure draggable positioning */
+    cursor: default;
+}
+/* Resize handles */
+.resize-handle {
+    position: absolute;
+    background: transparent;
+    z-index: 10;
+}
+.resize-top {
+    top: 0; left: 0; right: 0; height: 5px; cursor: ns-resize;
+}
+.resize-right {
+    top: 0; right: 0; bottom: 0; width: 5px; cursor: ew-resize;
+}
+.resize-bottom {
+    bottom: 0; left: 0; right: 0; height: 5px; cursor: ns-resize;
+}
+.resize-left {
+    top: 0; left: 0; bottom: 0; width: 5px; cursor: ew-resize;
+}
+.resize-top-left {
+    top: 0; left: 0; width: 10px; height: 10px; cursor: nwse-resize;
+}
+.resize-top-right {
+    top: 0; right: 0; width: 10px; height: 10px; cursor: nesw-resize;
+}
+.resize-bottom-left {
+    bottom: 0; left: 0; width: 10px; height: 10px; cursor: nesw-resize;
+}
+.resize-bottom-right {
+    bottom: 0; right: 0; width: 10px; height: 10px; cursor: nwse-resize;
+}
+
+/* --- BEGIN js/libraries/harlequin/css/LibraryHarlequinWindow.css --- */
+/*==================================================
+  Window Container Setup
+==================================================*/
+.jest-window.jest-style-harlequin {
+	position        : relative;
+	display         : flex;
+	flex-direction  : column;
+	/*width           : 100%;
+	height          : 100%;*/
+	box-sizing      : border-box;
+	overflow        : hidden;
+}
+
+/*==================================================
+  Header (Fixed Height)
+==================================================*/
+.jest-window-header.jest-style-harlequin {
+	flex-shrink     : 0;
+	height          : 32px;              /* Adjust as needed */
+	display         : flex;
+	align-items     : center;
+	padding         : 0 8px;
+	box-sizing      : border-box;
+}
+
+/*==================================================
+  Footer (Fixed Height)
+==================================================*/
+.jest-window-footer.jest-style-harlequin {
+	flex-shrink     : 0;
+	height          : 24px;              /* Adjust as needed */
+	display         : flex;
+	align-items     : center;
+	padding         : 0 8px;
+	box-sizing      : border-box;
+}
+
+/*==================================================
+  Viewport (Flexible Area Between Header & Footer)
+==================================================*/
+.jest-window-viewport.jest-style-harlequin {
+	flex-grow       : 1;
+	overflow        : auto;
+	box-sizing      : border-box;
+}
+
+/*==================================================
+/* Modal Base Styles
+==================================================*/
+/*.jest-style-harlequin.jest-window {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+	animation: fadeIn 0.5s ease;
+}
+
+.jest-style-harlequin.jest-window-content {
+	position: relative;
+	background: #222;
+	color: #eee;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	width: 400px;
+	transition: transform 0.3s, opacity 0.3s;
+}*/
+
+/*==================================================
+/* Panel Styles
+==================================================*/
+.jest-style-harlequin.jest-window-panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	/*background-color: #333;*/
+	padding: 10px;
+	border-radius: 8px 8px 0 0;
+}
+.jest-window-header .jest-window-title {
+	font-size: 12px;
+}
+.jest-window.minimized .jest-window-header .jest-window-title {
+	font-size: 12px;
+}
+.jest-window-header .jest-window-icon {
+	max-width: 32px;
+	max-height: 32px;
+	margin-right: 5px;
+}
+.jest-window.minimized .jest-window-header .jest-window-icon {
+	max-width: 32px;
+	max-height: 32px;
+}
+
+/*==================================================
+/* Minimize & Maximize Buttons
+==================================================*/
+.jest-style-harlequin.jest-window-controls button {
+	background: linear-gradient( 135deg, #333, #444 );
+	color: #eee;
+	border: 1px solid #555;
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.jest-style-harlequin.jest-window-controls button:hover {
+	background: linear-gradient( 135deg, #555, #666 );
+	box-shadow: 0 2px 6px rgba( 0, 0, 0, 0.5 );
+	transform: scale(1.1);
+}
+
+.jest-style-harlequin.jest-window-controls button:active {
+	transform: scale( 0.9 );
+	background: linear-gradient( 135deg, #222, #333 );
+}
+
+/* --- BEGIN js/libraries/harlequin/css/LibraryHarlequinButtons.css --- */
+/* ------------------------- */
+/* Button Styles             */
+/* ------------------------- */
+
+.jest-style-harlequin.jest-buttons button {
+    background-color: #222;
+    color: #fff;
+    border: 2px solid #444;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px 10px;
+}
+
+.jest-style-harlequin.jest-buttons button:hover {
+    background-color: #222;
+    color: #f00;
+    border-color: #f00;
+    transform: scale( 1.1 );
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+.jest-style-harlequin.jest-buttons button:active {
+    transform: scale( 0.98 );
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.4);
+}
+
+.jest-style-harlequin.jest-buttons button:disabled {
+    background: #555;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* --------------------- */
+/* Button Animation(s)   */
+/* --------------------- */
+/* Base Button Styles */
+button.jest-button.jest-style-harlequin {
+    background-color: #222; /* Default button color */
+    color: #fff; /* Default text color */
+    border: 2px solid #444; /* Default border */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth animation for all changes */
+}
+
+/* Highlight Animation on Hover */
+button.jest-button.jest-style-harlequin:hover {
+    background-color: #222; /* Highlight color */
+    color: #f00; /* Change text color */
+    border-color: #f00; /* Change border color */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Add glowing shadow */
+}
+
+/* Revert Animation on Hover Out */
+button.jest-button.jest-style-harlequin:active {
+    transform: scale(0.98); /* Shrink slightly on click */
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.4); /* Softer shadow */
+}
+
+
+/* --------------------- */
+/* Control Buttons       */
+/* --------------------- */
+#count-btn {
+    background: #555;
+}
+
+#follow-btn {
+    background: #555;
+}
+
+#cancel-btn {
+    background: #e00;
+    color: black;
+}
+
+/* --- BEGIN js/modules/menus/Dock/css/Dock.css --- */
+/* --------------------- */
+/* Jest Status           */
+/* --------------------- */
+/* Status container */
+.jest-dock {
+	/* Alignment */
+	display: flex;
+    align-items: center;
+	/* Positioning */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    z-index: 9999;
+    /*background: rgba( 33, 33, 33, 0.4 );*/
+    background: rgba( 33, 11, 11, 0.5 );
+    padding: 1px;
+    border-top: 1px solid #777;
+}
+/*.jest-dock {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  background: #121212;
+}*/
+
+/* Progress Bar */
+.jest-dock .jest-loadbar {
+    width: 100px;
+	margin-left: auto;
+}
+
+/* Dock Shortcuts */
+.jest-dock-shortcut {
+	position: relative;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.jest-dock-shortcut:hover {
+	transform: scale(1.3);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.jest-dock-shortcut:active {
+	animation: pulse 1s infinite;
+}
+
+/* Image Styling */
+.jest-dock-shortcut-icon {
+	width: 60px;
+	height: 60px;
+	transition: transform 0.3s ease;
+}
+
+/* Tooltip Styling */
+.jest-dock-shortcut:hover .tooltip {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+.jest-dock-shortcut.loading .jest-dock-shortcut-icon {
+	animation: jump 0.6s infinite;
+}
+
+/* --- BEGIN js/system/interface/JSOS/css/jsos.environment.css --- */
+/* --------------------- */
+/* Jest Environment      */
+/* --------------------- */
+#jest-environment {
+	position         : absolute;
+	top              : 0;
+	left             : 0;
+	width            : 100%;
+	height           : 100%;
+	font-family      : Arial, Verdana, sans-serif;
+}
+
+#jest-plugin-logo {
+	position         : absolute;
+	bottom           : 0;
+	right            : 0;
+	max-width        : 75px;
+	max-height       : 75px;
+	margin-right     : 20px;
+	margin-bottom    : 15px;
+	margin-right     : 10px;
+	margin-bottom    : 10px;
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/menus.css --- */
+@layer components {
+	/*==================================================
+	  Shared Panel Styling (File Menu, Toolbar, Tabs)
+	==================================================*/
+	.jest-window-viewport .file-menu,
+	.jest-window-viewport .toolbar,
+	.jest-window-viewport .tabbar {
+		display          : flex;
+		gap              : 10px;
+		padding          : 5px 10px 5px 10px;
+		background       : var(--brand-black);
+		color            : #eee;
+	}
+	.jest-window-viewport .menu {
+		display          : flex;
+		align-items      : center;
+		justify-content  : right;
+		min-height       : 16px;
+		line-height      : 16px;
+	}
+	.jest-window-viewport .menu .menu-title {
+		font-size        : 0.75em;
+		font-weight      : bold;
+		padding          : 0 10px;
+		color            : #999;
+		text-shadow      : 1px 1px 0px rgba(0,0,0,0.10);
+	}
+	.jest-window-viewport .toolbar {
+		padding          : 8px;
+	}
+	.jest-window-viewport .tabbar {
+		gap              : 0px;
+		justify-content  : left;
+		align-items      : center;
+		padding-bottom   : 0;
+		padding          : 0;
+	}
+
+
+	/*==================================================
+	  Global Button Style(s)
+	==================================================*/
+	.jest-window-viewport .menu button.disabled {
+		opacity          : var(--opacity-disabled);
+		cursor           : not-allowed;
+		transform        : scale(1);
+		transition       : none;
+	}
+	.jest-window-viewport .menu button.active {
+		cursor           : default;
+		transition       : none;
+	}
+
+
+	/*==================================================
+	  File Menu Buttons
+	==================================================*/
+	.jest-window-viewport .file-menu {
+		gap              : 0;
+		padding          : 0;
+		background       : transparent;
+	}
+	.jest-window-viewport .file-menu button {
+		text-transform   : capitalize;
+		background       : transparent;
+		color            : var(--brand-white);
+		border           : none;
+		padding          : 6px 10px;
+		cursor           : pointer;
+		transition       : background 0.2s ease;
+		text-shadow      : 0px 0 3px rgba(0, 0, 0, 0.5);
+	}
+	.jest-window-viewport .file-menu button.disabled,
+	.jest-window-viewport .file-menu button.disabled:hover {
+		color            : #888;
+		background       : transparent !important;
+	}
+	.jest-window-viewport .file-menu button.disabled > svg {
+		fill             : #888;;
+	}
+	.jest-window-viewport .file-menu button:hover {
+		background       : #666;
+	}
+	.jest-window-viewport .file-menu button > svg {
+		width            : 30px;
+		height           : 30px;
+		stroke           : none;
+		/*stroke-width     : 2;*/
+		fill             : var(--brand-white);
+		pointer-events   : none;
+		display          : inline-block;
+		display          : none;
+		vertical-align   : bottom;
+		width            : 1em;
+		height           : 1em;
+		margin-right     : 4px;
+		filter           : drop-shadow( 0 0 3px rgba(0, 0, 0, 0.5));
+	}
+	.jest-window-viewport .jest-filemenu-topright svg {
+		width            : 30px;
+		height           : 30px;
+		stroke           : none;
+		/*stroke-width     : 2;*/
+		fill             : #eee;
+		pointer-events   : none;
+		display          : inline-block;
+		vertical-align   : bottom;
+		width            : 1em;
+		height           : 1em;
+		margin-right     : 4px;
+		filter           : drop-shadow( 0 0 3px rgba(0, 0, 0, 0.5));
+	}
+
+
+	/*==================================================
+	  Toolbar Menu Buttons
+	==================================================*/
+	.jest-window-viewport .toolbar {
+		flex-direction   : column;
+		background       : var(--brand-black);
+	}
+	.jest-window-viewport .toolbar .invert-btn {
+		position         : absolute;
+		top              : 0px;
+		left             : 20px;
+	}
+	.jest-window-viewport .toolbar .invert-btn:hover .ico-invert {
+		fill             : #ff0033;
+	}
+	.jest-window-viewport .toolbar .invert-btn .ico-invert {
+		width            : 1em;
+		height           : 1em;
+		/*stroke           : currentColor;
+		stroke-width     : 2;*/
+		fill             : #999;
+		pointer-events   : none;
+	}
+	.jest-window-viewport .toolbar .title {
+		font-weight      : bold;
+		color            : #000;
+		text-shadow      : 1px 1px 1px rgba(255,255,255,0.1);
+		text-transform   : uppercase;
+	}
+	.jest-window-viewport .toolbar button {
+		background       : #111;
+		color            : #e0e0e0;
+		border           : none;
+		padding          : 12px 12px;
+		cursor           : pointer;
+		transition       : background 0.2s ease;
+		border-radius    : 3px;
+		box-shadow       : 2px 2px 2px 0px #111;
+		font-weight      : normal;
+		transition       : none;
+		border-top       : 1px solid rgba(255,255,255,0.1);
+		border-left      : 1px solid rgba(255,255,255,0.1);
+		border-bottom    : 1px solid rgba(0,0,0,0.1);
+		border-right     : 1px solid rgba(0,0,0,0.1);
+	}
+	.jest-window-viewport .toolbar button > svg {
+		width            : 30px;
+		height           : 30px;
+		stroke           : none;
+		/*stroke-width     : 2;*/
+		fill             : #eee;
+		pointer-events   : none;
+		display          : inline-block;
+		vertical-align   : bottom;
+		width            : 1.75em;
+		height           : 1.75em;
+		filter           : drop-shadow( 1px 1px 2px rgba(0, 0, 0, .3));
+	}
+	.jest-window-viewport .toolbar button:hover {
+		background       : #666;
+		color            : #fff;
+		font-weight      : normal;
+	}
+	.jest-window-viewport .toolbar button.active {
+		background       : var(--brand-color); /*544;*/
+		color            : #fdd;
+		text-shadow      : 2px 2px 2px rgba( 0, 100, 0, 0.3 );
+		font-weight      : bold;
+		cursor           : default;
+		transition       : none;
+	}
+	.jest-window-viewport .toolbar button:hover.active,
+	.jest-window-viewport .toolbar button:hover.disabled {
+		transform        : none;
+		transition       : none;
+	}
+	.jest-window-viewport .toolbar button:hover {
+		transform        : scale(1.08);
+		transition       : transform 0.15s ease-out;
+	}
+	.jest-window-viewport .toolbar button {
+		transition       : transform 0.3s cubic-bezier(.34,1.56,.64,1); /* fake bounce */
+	}
+
+
+	/*==================================================
+	  Tabbar Menu Buttons
+	==================================================*/
+	.jest-window-viewport .tabbar {
+		background       : var(--brand-black);
+	}
+	.jest-window-viewport .tabbar button {
+		background       : #222;
+		color            : #aaa;
+		border           : none;
+		padding          : 10px 6px 10px 10px;
+		cursor           : pointer;
+		transition       : background 0.2s ease;
+		/*border-radius    : 0 0 5px 5px;*/
+		/*border-radius    : 5px;*/
+		/*background-image :
+			linear-gradient(
+				rgba(0, 0, 0, 0.75) 0%,
+				rgba(0, 0, 0, 0.1) 20%,
+				rgba(0, 0, 0, 0) 20%,
+				rgba(0, 0, 0, 0) 100%
+				);*/
+	}
+
+	.jest-window-viewport .tabbar button:hover:not(.active) {
+		background       : #333;
+		/*background-image :
+			linear-gradient(
+				rgba(0, 0, 0, 0.75) 0%,
+				rgba(0, 0, 0, 0.1) 20%,
+				rgba(0, 0, 0, 0) 20%,
+				rgba(0, 0, 0, 0) 100%
+				);*/
+	}
+	.jest-window-viewport .tabbar button.active {
+		background       : #000; /*var(--brand-color);*/
+		/*background-image : linear-gradient( #800, #f00 );*/
+		color            : #eee;
+		box-shadow       : 0 3px 3px rgba(0,0,0,0.5)
+	}
+
+	.jest-window-viewport .tabbar button.new-button {
+		padding          : 10px;
+	}
+
+	.jest-window-viewport .tabbar button.x-button {
+		position         : relative;
+		display          : flex;
+		align-items      : center;
+		justify-content  : space-between;
+		gap              : 4px;
+		border-left      : 1px solid #1a1a1a;
+	}
+
+	.jest-window-viewport .tabbar button.x-button .button-close {
+		display          : flex;
+		align-items      : center;
+		justify-content  : center;
+		width            : 1.5em;
+		height           : 1.5em;
+		padding          : 2px;
+		border-radius    : 6px;
+		cursor           : pointer;
+		transition       : background 0.2s ease;
+	}
+
+	.jest-window-viewport .tabbar button.x-button .button-close:hover {
+		background       : rgba( 255, 0, 51, 1 );
+		color            : #eee;
+	}
+
+	/*.jest-window-viewport .tabbar button.active.x-button .button-close:hover {
+		background : rgba( 33, 33, 33, 0.4 );
+	}*/
+
+	.jest-window-viewport .tabbar button.new-button .ico-new {
+		fill             : #eee;
+		stroke           : #eee;
+		width            : 1.5em;
+		height           : 1.5em;
+		pointer-events   : none; /* let the div handle the click */
+	}
+
+	.jest-window-viewport .tabbar button.x-button .ico-x {
+		width            : 1em;
+		height           : 1em;
+		pointer-events   : none; /* let the div handle the click */
+	}
+
+
+	/*-----------------------------------
+	  Sidebar Panel Base
+	-----------------------------------*/
+	.collapsible-menu {
+		display          : flex;
+		flex-direction   : column;
+		/*width            : 240px;*/
+		/*background       : var(--brand-black);*/
+		border-right     : 1px solid #333;
+		overflow-y       : auto;
+	}
+
+	/*-----------------------------------
+	  Sections Container
+	-----------------------------------*/
+	.collapsible-menu .sidebar-sections {
+		display          : flex;
+		flex-direction   : column;
+		/*gap              : 4px;*/
+		padding          : 4px 4px;
+	}
+
+	/*-----------------------------------
+	  Individual Section Wrapper
+	-----------------------------------*/
+	.collapsible-menu .sidebar-section {
+		/*border-bottom    : 1px solid #333;*/
+		transition       : background 0.3s ease;
+		margin-bottom    : 5px;
+	}
+
+	.collapsible-menu .sidebar-section {
+		background       : #111;
+		overflow         : auto;
+		border           : 1px solid #333;
+		border-radius    : var(--border-radius-dashboard);
+		box-shadow       : 2px 2px 2px rgba(0,0,0,0.5);
+	}
+
+	.collapsible-menu .sidebar-section .sidebar-content-wrap > .form {
+		margin           : 5px;
+		padding          : 5px 5px;
+	}
+
+	/*-----------------------------------
+	  Title Bar
+	  -----------------------------------*/
+	.collapsible-menu .sidebar-section.is-collapsed .sidebar-title {
+	}
+
+	.collapsible-menu .sidebar-title {
+		position         : relative;
+		display          : flex;
+		align-items      : center;
+		/*gap              : 8px;*/
+		padding          : 10px;
+		cursor           : pointer;
+		background       : #111;
+		/*border-radius    : 5px;*/
+		color            : #eee;
+		/*font-weight      : bold;*/
+		font-size        : 13px;
+		user-select      : none;
+		transition       : background 0.3s ease;
+		color            : #aaa;
+		text-shadow      : 1px 1px 1px rgb( 85, 0, 0, 0 );
+		padding-left     : 30px; /* make room for the arrow */
+		/*margin-bottom    : 5px;*/
+	}
+
+	/*.collapsible-menu .sidebar-title::before {
+		content          : '▶';
+		position         : absolute;
+		left             : 8px;
+		top              : 50%;
+		transform        : translateY(-50%) rotate(0deg);
+		transform-origin : center center;
+		transition       : transform 0.2s ease;
+		font-size        : var(--opacity-disabled)em;
+		color            : #999;
+	}*/
+
+	.collapsible-menu .sidebar-section .sidebar-title {
+		display          : flex;
+		align-items      : center;
+		justify-content  : space-between;
+		gap              : 0.5em;
+		/*padding          : 0.5em 1em;*/
+		/*background       : var(--brand-black);
+		color            : var(--color-fg);*/
+		/*background       : #100;*/
+		padding          : 1em 1em;
+		color            : #ddd;
+		border-bottom    : 1px solid #333;
+	}
+
+	.collapsible-menu .sidebar-section.is-closed .sidebar-title {
+		border-bottom    : none;
+	}
+
+	.collapsible-menu .sidebar-section.is-disabled .sidebar-title {
+		opacity          : 0.5;
+		cursor           : not-allowed;
+		pointer-events   : auto; /* still allow tooltip */
+		background       : #222;
+		color            : #555;
+		text-shadow      : 1px 1px 1px rgb( 85, 0, 0, 0.25 );
+	}
+
+	.collapsible-menu .sidebar-section .sidebar-title .title {
+		flex-grow        : 1;
+		overflow         : hidden;
+		text-overflow    : ellipsis;
+		white-space      : nowrap;
+	}
+
+	.collapsible-menu .sidebar-section:not(.is-disabled) .sidebar-title:hover {
+		background       : #333;
+		color            : #eee;
+	}
+
+	/*.collapsible-menu .sidebar-section.is-closed {
+		border-radius    : var(--border-radius-dashboard);
+	}*/
+
+	/*.collapsible-menu .sidebar-section.is-open,
+	.collapsible-menu .sidebar-section.is-opening,
+	.collapsible-menu .sidebar-section.is-closing {
+		border-radius    : var(--border-radius-dashboard) var(--border-radius-dashboard) 0 0;
+	}*/
+
+	/*-----------------------------------
+	Rotate arrow when open
+	-----------------------------------*/
+	/*.collapsible-menu .sidebar-section.is-open .sidebar-title::before {
+		content          : '▼';
+	}*/
+
+	/*-----------------------------------
+	  Title Icon
+	-----------------------------------*/
+	.collapsible-menu .sidebar-section .sidebar-title .ico-arrow {
+		width            : 1.25em;
+		height           : 1.25em;
+		stroke           : currentColor;
+		stroke-width     : 2;
+		fill             : none;
+		pointer-events   : none;
+	}
+
+	.collapsible-menu .sidebar-section.is-open .sidebar-title .ico-arrow,
+	.collapsible-menu .sidebar-section.is-opening .sidebar-title .ico-arrow,
+	.ico-arrow.invert {
+		transform: rotate( 180deg );
+	}
+
+	.ico-arrow {
+		vertical-align   : middle;
+		width            : 1em;
+		height           : 1em;
+		stroke           : currentColor;
+		fill             : none;
+		stroke-width     : 2;
+	}
+
+	.collapsible-menu .sidebar-icon {
+		width            : 16px;
+		height           : 16px;
+	}
+
+	/*-----------------------------------
+	  Collapsible Content
+	  -----------------------------------*/
+	.collapsible-menu .sidebar-content-wrap {
+		overflow         : auto;
+	}
+
+	.collapsible-menu .sidebar-section .sidebar-content {
+		overflow         : hidden;
+		overflow-x       : hidden;
+		max-height       : 0;
+		transition       : max-height 0.3s ease, padding 0.3s ease;
+		padding          : 1.5em 1em;
+		color            : #ddd;
+	}
+
+	.collapsible-menu .sidebar-section .sidebar-content.is-closed {
+		max-height       : 0 !important;
+		padding          : 0 !important;
+		border           : none !important;
+		display          : none;
+	}
+
+	.collapsible-menu .sidebar-content.is-opening {
+		display          : block;
+	}
+
+	.collapsible-menu .sidebar-content.is-closing {
+		display          : block;
+	}
+
+	/*-----------------------------------
+	  Open State Overrides
+	-----------------------------------*/
+	.collapsible-menu .sidebar-section .sidebar-content {
+		padding          : 0; /*10px 10px;*/
+	}
+	.collapsible-menu .sidebar-section.is-open .sidebar-content {
+		/* when open, padding restores to top/bottom */
+		padding          : 0; /*10px 10px;*/
+		/*overflow-x       : scroll;*/
+	}
+	.collapsible-menu .sidebar-section.is-closed .sidebar-content {
+		display          : none;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/sidebar.css --- */
+@layer components {
+	/*-----------------------------
+	  Form Wrapper
+	-----------------------------*/
+	.sidebar-content .menu.form {
+		display				: flex;
+		flex-direction		: column;
+		gap					: 10px;
+		align-items		 : normal;
+		/*margin			  : 0 10px 10px;*/
+	}
+
+	/*-----------------------------
+	  Input Checkbox
+	-----------------------------*/
+	.sidebar-content .input.checkbox {
+		display				: flex;
+		align-items			: center;
+		align-self		  : stretch;
+		justify-content	 : center;
+		gap					: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		transition			: background 0.3s ease;
+		box-shadow			: 0 0 4px rgba( 255, 0, 255, 0.1 ),
+							  4px 4px 4px rgba( 0, 0, 0, var(--opacity-disabled) );
+	}
+
+	.sidebar-content .input.checkbox:hover {
+		background			: #222;
+		/*box-shadow			: 0 0 5px rgba(255,0,255,0.25);*/
+	}
+
+	/*-----------------------------
+	  Label Styling
+	-----------------------------*/
+	.sidebar-content .input.checkbox label {
+		color				: #ccc;
+		font-weight			: 500;
+		cursor				: pointer;
+		user-select			: none;
+		transition			: color 0.3s ease;
+		text-shadow		 : 1px 1px 1px rgba( 0, 0, 0, 0.9 );
+		margin-right		: 4px;
+	}
+
+	.sidebar-content .input.checkbox:hover label {
+		color				: #fff;
+	}
+
+	/*-----------------------------
+	  Checkbox(es)
+	-----------------------------*/
+	.sidebar-content .input.checkbox input[type="checkbox"] {
+		width				: 18px;
+		height				: 18px;
+		border-radius		: 4px;
+		border				: 1px solid #444;
+		background			: #111;
+		appearance			: none;
+		cursor				: pointer;
+		transition			: all 0.2s ease;
+		position			: relative;
+		box-shadow			: inset 0 0 3px rgba( 255, 0, 51, 0.15 );
+		margin			  : 0;
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]:checked {
+		background			: #ff0033;
+		border-color		: #c01;
+		box-shadow			: 0 0 6px rgba( 255, 0, 51, var(--opacity-disabled) );
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]::after {
+		content				: '';
+		position			: absolute;
+		top					: 2px;
+		left				: 5px;
+		width				: 5px;
+		height				: 10px;
+		border				: solid #000;
+		border-width		: 0 2px 2px 0;
+		transform			: rotate( 45deg );
+		opacity				: 0;
+		transition			: opacity 0.2s ease;
+	}
+
+	.sidebar-content .input.checkbox input[type="checkbox"]:checked::after {
+		opacity				: 1;
+	}
+
+
+	/*-----------------------------
+	  Range Slider(s)
+	  -----------------------------*/
+	.sidebar-content .range {
+		display				: flex;
+		align-items			: center;
+		gap					: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		box-shadow			: 0 0 4px rgba(255,0,255,0.1),
+							  4px 4px 4px rgba(0,0,0,var(--opacity-disabled));
+		transition			: background 0.3s ease;
+	}
+
+	.sidebar-content .range:hover {
+		background			: #222;
+		/*box-shadow			: 0 0 5px rgba(255,0,255,0.25);*/
+	}
+
+	.sidebar-content .range input[type="range"] {
+		width				: 100%;
+		flex-grow			: 1;
+		margin				: 0;
+	}
+
+	.sidebar-content .range .range-value {
+		display				: inline-block;
+		font-family			: monospace;
+		font-size			: 13px;
+		color				: #ccc;
+		margin-left			: 4px;
+		min-width			: 24px;		/* reserve space for 2-3 digits */
+		text-align			: center;
+	}
+
+	/*-----------------------------
+	  Label Styling
+	-----------------------------*/
+	.sidebar-content .range label {
+		color				: #ccc;
+		font-weight			: 500;
+		cursor				: pointer;
+		user-select			: none;
+		transition			: color 0.3s ease;
+		margin-right		: 4px;
+		text-shadow		 : 1px 1px 1px rgba(0,0,0,0.9);
+	}
+
+	.sidebar-content .range:hover label {
+		color				: #fff;
+	}
+
+	/*-----------------------------
+	  Input Slider Itself
+	-----------------------------*/
+	.sidebar-content .range input[type="range"] {
+		-webkit-appearance	: none;
+		width				: 100%;
+		height				: 6px;
+		background			: #000;
+		border-radius		: 3px;
+		outline				: none;
+		/*box-shadow			: 0 0 4px rgba(0,255,0,0.4);*/
+		position			: relative;
+		cursor				: pointer;
+		border-bottom	   : 1px solid rgba( 255, 255, 255, 0.2 );
+	}
+
+	.sidebar-content .range input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance	: none;
+		width				: 16px;
+		height				: 16px;
+		background			: #f00;
+		border				: 1px solid #900;
+		border-radius		: 50%;
+		box-shadow			: 0 0 4px rgba(255,0,0,var(--opacity-disabled)),
+							  2px 2px 2px rgba(0,0,0,0.3);
+		transition			: transform 0.2s ease;
+		position			: relative;
+	}
+
+	.sidebar-content .range input[type="range"]::-webkit-slider-thumb:hover {
+		transform			: scale(1.2);
+		box-shadow			: 0 0 6px rgba(255,0,51,0.75);
+	}
+
+	.sidebar-content .range input[type="range"]::-moz-range-thumb {
+		width				: 16px;
+		height				: 16px;
+		background			: #ff0033;
+		border				: 1px solid #900;
+		border-radius		: 50%;
+		box-shadow			: 0 0 4px rgba(255,0,51,var(--opacity-disabled)),
+							  2px 2px 2px rgba(0,0,0,0.3);
+		cursor				: pointer;
+	}
+
+	/*-----------------------------
+	  Value Label
+	-----------------------------*/
+	.sidebar-content .range .range-value {
+		color				: #ff0033;
+		font-family			: monospace;
+		font-size			: 13px;
+		font-weight		 : bold;
+		min-width			: 30px;
+		text-align			: right;
+		text-shadow		 : 1px 1px 1px rgba( 0, 0, 0, 0.9 );
+	}
+
+	/* Restore slider visuals by overriding bad input styles */
+	.sidebar-content .range input[type="range"] {
+		-webkit-appearance	: none;
+		background			: #000 !important;
+		height				: 6px !important;
+		padding				: 0 !important;
+		margin				: 0 !important;
+		border				: none !important;
+		/*box-shadow			: 0 0 4px rgba(0,255,0,0.4) !important;*/
+		border-radius		: 3px !important;
+		cursor				: pointer;
+		pointer-events	  	: auto !important;
+	}
+
+
+
+
+	.sidebar-content .numeric-range {
+		display		 		: flex;
+		align-items	 		: center;
+		gap			 		: 4px;
+		background			: #222;
+		border				: 1px solid #333;
+		padding				: 8px 10px;
+		border-radius		: 6px;
+		box-shadow			: 0 0 4px rgba(255,0,255,0.1),
+								4px 4px 4px rgba(0,0,0,var(--opacity-disabled));
+	}
+
+	.sidebar-content .numeric-range .range {
+		flex-grow			: 1;
+	}
+
+	.sidebar-content .numeric-range .number {
+		width				: 60px;
+	}
+
+	.sidebar-content .numeric-range .number input[type="number"] {
+		background			: #111;
+		color				: #ff0033;
+		border				: 1px solid #333;
+		border-radius		: 6px;
+		padding				: 4px 6px;
+		font-family			: monospace;
+		font-size			: 13px;
+		font-weight			: bold;
+		text-align			: right;
+		width				: 60px;
+		box-shadow			: inset 0 0 4px rgba( 255, 0, 0, 0.2 );
+	}
+
+	.sidebar-content .numeric-range .number input[type="number"] {
+		appearance			: textfield;
+		-moz-appearance		: textfield;
+		background			: transparent;
+		background			: #111;
+		border				: none;
+		color				: #ff0033;
+		font-family			: monospace;
+		font-weight			: bold;
+		font-size			: 13px;
+		width				: 30px;
+		text-align			: right;
+	}
+
+	.sidebar-content .numeric-range .number-container {
+		display				: flex;
+		align-items			: center;
+	}
+
+	.sidebar-content .step-button > button {
+		all					: unset;   /* kill browser defaults */
+		display				: flex;
+		align-items			: center;
+		justify-content		: center;
+		width				: 24px;
+		height				: 18px;
+		background			: #111;
+		color				: #ff0033;
+		border				: 1px solid #333;
+		border-radius		: 4px;
+		font-size			: 12px;
+		cursor				: pointer;
+		box-shadow			: inset 0 0 2px rgba( 255, 0, 0, 0.2 );
+	}
+
+	.sidebar-content .step-button > button:hover {
+		background			: #181818;
+		box-shadow			: 0 0 4px rgba( 255, 0, 51, 0.6 );
+	}
+
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/modal.css --- */
+@layer components {
+	/*-----------------------------------
+	  Modal Base Styles
+	-----------------------------------*/
+	.jest-modal {
+		position        : fixed;
+		top             : 0;
+		left            : 0;
+		width           : 100vw;
+		height          : 100vh;
+		z-index         : 9999;
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		pointer-events  : all;
+	}
+	.jest-modal.hidden {
+		display         : none;
+	}
+
+	/*-----------------------------------
+	  Overlay Background
+	-----------------------------------*/
+	.modal-overlay {
+		position        : absolute;
+		top             : 0;
+		left            : 0;
+		width           : 100%;
+		height          : 100%;
+		background      : rgba(0, 0, 0, 0.6);
+		/*backdrop-filter : blur(2px);*/
+	}
+
+	/*-----------------------------------
+	  Modal Container
+	-----------------------------------*/
+	.modal-box {
+		position        : relative;
+		background      : #111;
+		border          : 2px solid #444;
+		border-radius   : 8px;
+		padding         : 20px;
+		width           : 300px;
+		z-index         : 10000;
+		box-shadow      : 10px 10px 20px rgba(0, 0, 0, 0.9);
+		display         : flex;
+		flex-direction  : column;
+		gap             : 10px;
+		font-family     : Arial, sans-serif;
+		transition      : all 0.15s ease; /* Smooth animation for all changes */
+	}
+	.modal-box:hover {
+		background      : var(--color-ui);
+		border-color    : #666;
+	}
+
+	/*-----------------------------------
+	  Title / Text / Input / Buttons
+	-----------------------------------*/
+	.modal-title {
+		font-size       : 22px;
+		font-weight     : bold;
+		color           : #fff;
+	    margin          : 0;
+		text-align      : center;
+	}
+
+	.modal-text {
+		font-size       : 14px;
+		color           : #ccc;
+		text-align      : center;
+	}
+
+	.modal-input {
+		margin-top      : 6px;
+	}
+	.modal-input:empty {
+		display         : none;
+	}
+
+	.modal-input .input.jest-panel {
+		display         : flex;
+		align-items     : center;
+		width           : 100%;
+		gap             : 8px; /* space between label and input (optional) */
+	}
+
+	.modal-input label {
+		width           : 90%;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 13px;
+		text-align      : left;
+	}
+
+	.modal-input select,
+	.modal-input input {
+		flex            : 1;
+		width           : 90%;
+		padding         : 10px;
+		margin          : 0 0 10px 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #333;
+		color           : #eee;
+		transition      : all 0.15s ease;
+	}
+	.modal-input input:hover {
+		background      : #444;
+	}
+
+	.modal-buttons {
+		display         : flex;
+		justify-content : center;
+		gap             : 10px;
+		margin-top      : 10px;
+	}
+
+	.modal-buttons button {
+		background-color: #222; /* Default button color */
+		color           : #fff; /* Default text color */
+		border          : 2px solid #444; /* Default border */
+		padding         : 10px 20px;
+		font-size       : 16px;
+		border-radius   : 5px;
+		cursor          : pointer;
+		transition      : var(--transition); /* Smooth animation for all changes */
+	}
+
+	.modal-buttons button:hover {
+		background-color: #222; /* Default button color */
+		color           : #f00; /* Default text color */
+		border          : 2px solid #444; /* Default border */
+		border-color    : #f00;
+		transform       : scale(1.1); /* Slightly enlarge the button */
+		box-shadow      : 0 4px 10px rgba(255, 0, 0, var(--opacity-disabled)); /* Add glowing shadow */
+	}
+
+
+	/*-----------------------------------
+	  Match Textarea to Modal Input Field
+	-----------------------------------*/
+	.modal-input .input.textarea.jest-panel {
+		display         : flex;
+		align-items     : center;
+		width           : 100%;
+		gap             : 8px;
+	}
+
+	.modal-input .input.textarea.jest-panel label {
+		width           : 50px;
+		min-width       : 50px;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 11px;
+	}
+
+	.modal-input .input.textarea.jest-panel textarea {
+		flex            : 1;
+		width           : 100%;
+		min-height      : 60px; /* or 80px for more space */
+		padding         : 10px;
+		margin          : 10px 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #333;
+		color           : #eee;
+		transition      : all 0.15s ease;
+		resize          : vertical;
+	}
+
+	.modal-input .input.textarea.jest-panel textarea:hover {
+		background      : #444;
+	}
+
+	.modal-input .input.text.jest-panel {
+		display         : flex;
+		flex-direction  : column; /* Force label/input/caption to stack vertically */
+	}
+
+	.modal-input .jest-caption {
+		font-size       : 0.75rem;
+		color           : #444;
+		margin-top      : -10px;
+		padding         : 0 10px;
+	}
+
+	.modal-input .jest-caption b {
+		color           : #555;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/selector.css --- */
+@layer components {
+	/*-----------------------------------
+	  Object Selector Layout
+	-----------------------------------*/
+	.object-selector {
+		background       : #1e1e1e;
+		border           : 1px solid #333;
+		border-radius    : 0 0 6px 6px;
+		display          : flex;
+		flex-direction   : column;
+		gap              : 10px;
+		padding          : 10px;
+		margin           : 5px;
+	}
+
+	.selector-detail {
+		font-family      : monospace;
+		font-size        : 12px;
+		background       : #0f0f0f;
+		color            : #ccc;
+		padding          : 6px;
+		border           : 1px solid #333;
+		border-radius    : 4px;
+		min-height       : 16px;
+		white-space      : pre-wrap;
+		word-break       : break-word;
+		text-align       : center;
+		box-sizing       : border-box;
+	}
+
+	.selector-detail,
+	.selector-detail canvas {
+		display          : inline-block;
+		vertical-align   : bottom;
+		display          : block;
+		width            : 100%; /* Scales responsively */
+		height           : auto !important; /* Maintains aspect ratio */
+		max-width        : 100%; /* Prevents overflow */
+		image-rendering  : pixelated; /* For pixel art */
+	}
+
+	.object-selector .selector-detail .display.disabled {
+		display          : none !important;
+	}
+
+	.sidebar-content .input {
+		width            : 100%;
+		box-sizing       : border-box;
+	}
+	.sidebar-content .input-select select,
+	.sidebar-content .range input[type="range"] {
+		flex             : 1;
+		width            : 100%;
+	}
+	.sidebar-content .range-value {
+		flex-shrink      : 0;
+	}
+	/*.jest-panel {
+		box-sizing: border-box;
+		width: 100%;
+	}*/
+
+	/*-----------------------------------
+	  Selector Buttons
+	-----------------------------------*/
+	.selector-buttons .toolbar {
+		display          : block;
+	}
+
+	.selector-buttons {
+		/* display       : flex;
+		   justify-content : flex-end; */
+	}
+
+	.selector-buttons button {
+		display          : block;
+		width            : 100%;
+		font-size        : 16px;
+		letter-spacing   : 2px;
+		text-transform   : uppercase;
+		background       : #111;
+		color            : #e0e0e0;
+		border           : none;
+		border-radius    : 3px;
+		padding          : 6px 10px;
+		cursor           : pointer;
+		box-shadow       : 2px 2px 2px 0px #111;
+		transition       : transform 0.3s cubic-bezier(.34,1.56,.64,1);
+		margin           : 5px 0;
+	}
+	.selector-buttons button.disabled {
+		background       : var(--color-ui);
+		color            : #444;
+	}
+	.selector-buttons button.disabled:hover {
+		background       : var(--color-ui) !important;
+		color            : #444;
+		transform        : scale(1);
+		z-index          : 0;
+	}
+
+	.selector-buttons button:hover {
+		background       : #666;
+		background       : #ff0033 !important;
+		color            : #fff;
+		transform        : scale(1.08);
+		z-index          : 100;
+	}
+
+	.selector-buttons button:active {
+		box-shadow       : none;
+		transform        : scale(1.0);
+		top              : 2px;
+		left             : 2px;
+	}
+
+	.selector-buttons button.active {
+		background       : #d00;
+		color            : #fff;
+		font-weight      : bold;
+		cursor           : default;
+	}
+
+	.selector-buttons button:hover.active,
+	.selector-buttons button:hover.disabled {
+		transform        : none;
+	}
+
+	/*-----------------------------------
+	  Predefined Object Display
+	-----------------------------------*/
+	.predefined-object {
+		background       : var(--brand-black);
+		border           : 1px solid #333;
+		padding          : 6px;
+		border-radius    : 4px;
+		font-size        : 12px;
+		color            : #ccc;
+	}
+
+	.object-id,
+	.object-type {
+		font-weight      : bold;
+		margin-bottom    : 4px;
+	}
+
+	.object-data {
+		white-space      : pre-wrap;
+		font-family      : monospace;
+		background       : #0f0f0f;
+		padding          : 4px;
+		border           : 1px solid #222;
+		border-radius    : 3px;
+	}
+
+	/*-----------------------------------
+	  Form Layout Logic
+	-----------------------------------*/
+	.selector-detail .display.jest-panel {
+		width            : 100%;
+	}
+
+	.selector-detail .form.jest-panel {
+		display          : flex;
+		flex-direction   : column;
+		width            : 100%;
+		gap              : 8px;
+	}
+
+	.selector-detail .input.text.jest-panel {
+		display          : flex;
+		align-items      : center;
+		width            : 100%;
+	}
+
+	.selector-detail .input.text.jest-panel label {
+		width            : 100px;
+		min-width        : 80px;
+		text-align       : right;
+		margin-right     : 8px;
+	}
+
+	.selector-detail .input.text.jest-panel input {
+		flex             : 1;
+		width            : 100%;
+		padding          : 6px 10px;
+		border           : 1px solid #aaa;
+		border-radius    : 4px;
+		box-sizing       : border-box;
+	}
+
+	.selector-detail label {
+		width           : 50px; /* or use percentage like 30% */
+		min-width       : 50px;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 11px;
+	}
+
+	.selector-detail select,
+	.selector-detail input {
+		flex            : 1;
+		width           : 100%;
+		padding         : 10px;
+		margin          : 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #100;
+		color           : #edd;
+		transition      : all 0.15s ease;
+		box-sizing      : border-box;
+	}
+	.selector-detail input {
+		background      : #020;
+		color           : #0e0;
+		/*font-weight     : bold;*/
+	}
+	.selector-detail input:hover:not(:read-only) {
+		background      : #444;
+		color           : #eee;
+	}
+	.selector-detail input[type="text"]:read-only,
+	.selector-detail input[type="number"]:read-only,
+	.selector-detail input[type="email"]:read-only,
+	.selector-detail input[type="submit"]:read-only,
+	.selector-detail input[type="button"]:read-only,
+	.selector-detail input[type="file"]:read-only {
+		pointer-events  : none;
+		/*background      : #100;
+		color           : #eee;*/
+		background      : #111;
+		color           : #777;
+		border          : 1px solid #777 !important;
+	}
+	.selector-detail .input.text.jest-panel.unsaved input,
+	.selector-detail .input.number.jest-panel.unsaved input {
+		background      : #200;
+		color           : #e00;
+		font-weight     : bold;
+	}
+
+	/*-----------------------------------
+	  Match Textarea to Input Field Style
+	-----------------------------------*/
+	.selector-detail .input.textarea.jest-panel {
+		display          : flex;
+		align-items      : center;
+		width            : 100%;
+	}
+
+	.selector-detail .input.textarea.jest-panel label {
+		width            : 100px;
+		min-width        : 80px;
+		text-align       : right;
+		margin-right     : 8px;
+	}
+
+	.selector-detail .input.textarea.jest-panel textarea {
+		flex             : 1;
+		width            : 100%;
+		min-height       : 60px; /* adjustable if needed */
+		padding          : 6px 10px;
+		border           : 1px solid #aaa;
+		border-radius    : 4px;
+		box-sizing       : border-box;
+		resize           : vertical;
+		background       : #020;
+		color            : #0e0;
+		font-size        : 1em;
+		transition       : all 0.15s ease;
+	}
+
+	.selector-detail .input.textarea.jest-panel textarea:hover {
+		background       : #444;
+		color            : #eee;
+	}
+
+	.selector-detail .input.textarea.jest-panel.unsaved textarea {
+		background       : #200;
+		color            : #e00;
+		font-weight      : bold;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/statusbar.css --- */
+@layer components {
+	/*==================================================
+	  Inner Status Row (Row Flex)
+	==================================================*/
+	.jest-creator-status .statusbar {
+		display         : flex;
+		flex-direction  : row;
+		align-items     : center;
+		justify-content : space-between;
+		height          : auto;
+		width           : 100%;
+		padding         : 5px 10px;
+		box-sizing      : border-box;
+	}
+
+	/*==================================================
+	  Left Status Text
+	==================================================*/
+	.jest-creator-status .statusbar .status {
+		flex            : 1 1 auto;
+		overflow        : hidden;
+		text-overflow   : ellipsis;
+		white-space     : nowrap;
+		font-size       : 11px;
+		color           : #aaa;
+		margin          : 0;
+	}
+
+	/*==================================================
+	  Copyright Notice
+	==================================================*/
+	.jest-creator-status .statusbar .jest-copyright {
+		/*flex            : 1 1 auto;
+		overflow        : hidden;
+		text-overflow   : ellipsis;
+		white-space     : nowrap;
+		font-size       : 11px;*/
+		color           : rgba( 255, 255, 255, 0.3 );
+		margin          : 0;
+		padding         : 0 0 0 10px;
+		font-size       : 0.65em;
+	}
+
+	/*==================================================
+	  Loadbar (Flush Right)
+	==================================================*/
+	.jest-creator-status .statusbar .jest-loadbar {
+		flex            : 0 0 278px;
+		height          : 14px;
+		width           : 100px;
+		margin-right    : 0 !important;
+	}
+
+	/*==================================================
+	  Additional Display Styling
+	==================================================*/
+	.jest-creator-status .statusbar .display {
+		margin          : 0 0 0 0;
+		padding         : 0;
+		font-size       : 0.65em;
+		color           : #bbb;
+		text-shadow     : 2px 2px 2px rgba(16,16,16,0.3);
+		background      : #111;
+		height          : 22px;
+		line-height     : 22px;
+		padding         : 0 10px;
+		border-radius   : 5px;
+		border-radius   : 3px;
+		border-bottom   : 1px solid #222;
+		border-right    : 1px solid #222;
+		border-top      : 1px solid #000;
+		border-left     : 1px solid #000;
+		box-shadow      : inset 2px 2px 2px rgba(0, 0, 0, 0.5)
+	}
+
+	.jest-creator-status .statusbar .display strong {
+		color           : #eb394b;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/tooltip.css --- */
+@layer components {
+	/*-----------------------------------
+	  Tooltip Wrapper
+	-----------------------------------*/
+	.jest-tooltip {
+		position        : absolute;
+		z-index         : 9999;
+		pointer-events  : none;
+		opacity         : 1;
+		transition      : opacity 0.15s ease-in-out;
+	}
+	.jest-tooltip.hidden {
+		opacity         : 0;
+	}
+
+	/*-----------------------------------
+	  Tooltip Inner Box
+	-----------------------------------*/
+	.tooltip-box {
+		background      : rgba(10, 10, 10, 0.92);
+		color           : #fff;
+		font-size       : 13px;
+		font-family     : monospace;
+		padding         : 6px 10px;
+		border-radius   : 4px;
+		white-space     : nowrap;
+		box-shadow      : 0 2px 5px rgba(0,0,0,0.6);
+	}
+
+	/*-----------------------------------
+	  Tooltip Attribute(s) With HTML
+	-----------------------------------*/
+	.tooltip-box kbd {
+		display         : inline-block;
+		background      : #222;
+		color           : #fff;
+		border-radius   : 4px;
+		padding         : 2px 5px;
+		margin          : 0 2px;
+		font-family     : monospace;
+		font-size       : 12px;
+		border          : 1px solid #555;
+		box-shadow      : inset 0 0 2px #000;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/file_viewer.css --- */
+@layer components {
+	/***********************************************
+	 * Cloud Save List Viewer Layout
+	 ***********************************************/
+	.jest-file-viewer {
+		background-color     : #161616;
+		/*border               : 1px solid #333;
+		border-radius        : 6px;*/
+		overflow             : hidden;
+		font-family          : 'Inter', sans-serif;
+		font-size            : 12px;
+		color                : #f0f0f0;
+	}
+
+	/***********************************************
+	 * Grid Layout — 5 Equal Columns
+	 ***********************************************/
+	.list-header,
+	.col-row {
+		padding              : 0;
+		display              : grid !important;
+		grid-template-columns: repeat(5, 1fr) !important; /* 5 columns: name, type, version, note, date */
+	}
+
+	/***********************************************
+	 * Header Row (Sticky)
+	 ***********************************************/
+	.list-header {
+		position             : sticky;
+		top                  : 0;
+		background-color     : #1e1e1e;
+		border-bottom        : 1px solid #444;
+		z-index              : 10;
+	}
+
+	.col-header {
+		padding              : 8px 10px;
+		font-weight          : bold;
+		color                : #ccc;
+		text-transform       : uppercase;
+		letter-spacing       : 0.5px;
+		white-space          : nowrap;
+		cursor               : pointer;
+		border-right         : 1px solid #333;
+		overflow             : hidden;
+		text-overflow        : ellipsis;
+	}
+
+	.col-header:hover {
+		background-color     : #333;
+	}
+
+	.col-header:last-child {
+		border-right         : none;
+	}
+
+	/***********************************************
+	 * List Body
+	 ***********************************************/
+	.list-body {
+		max-height           : 150px;
+		/*overflow-y           : auto;*/
+		display              : flex;
+		flex-direction       : column;
+	}
+
+	/***********************************************
+	 * Row Item Style
+	 ***********************************************/
+	.col-row {
+		padding              : 0 !important;
+		background-color     : #111;
+		border-bottom        : 1px solid #222;
+		transition           : background-color 0.15s ease-in-out;
+	}
+	.col-row:nth-child(odd) {
+		background-color     : #111;
+	}
+	.col-row:nth-child(even) {
+		background-color     : #1a1a1a;
+	}
+
+	.col-row:hover {
+		background-color     : #222;
+	}
+
+	.jest-list-item.col-row.selected,
+	.jest-list-item.col-row.active {
+		background-color     : #522;
+		color                : #eee;
+	}
+
+	/***********************************************
+	 * Row Column Fields
+	 ***********************************************/
+	.col-field {
+		padding              : 10px 10px;
+		overflow             : hidden;
+		text-overflow        : ellipsis;
+		white-space          : nowrap;
+		border-right         : 1px solid #222;
+	}
+
+	.col-field:last-child {
+		border-right         : none;
+	}
+
+	/***********************************************
+	 * Scrollbar Override (Optional)
+	 ***********************************************/
+	.list-body::-webkit-scrollbar {
+		width                : 6px;
+	}
+	.list-body::-webkit-scrollbar-thumb {
+		background-color     : #333;
+		border-radius        : 3px;
+	}
+	.list-body::-webkit-scrollbar-track {
+		background-color     : #1a1a1a;
+	}
+
+	/***********************************************
+	 * Jest Grid Column Count Utilities (1–25)
+	 ***********************************************/
+	.jest-cols-1  { grid-template-columns: repeat( 1, 1fr ) !important; }
+	.jest-cols-2  { grid-template-columns: repeat( 2, 1fr ) !important; }
+	.jest-cols-3  { grid-template-columns: repeat( 3, 1fr ) !important; }
+	.jest-cols-4  { grid-template-columns: repeat( 4, 1fr ) !important; }
+	.jest-cols-5  { grid-template-columns: repeat( 5, 1fr ) !important; }
+	.jest-cols-6  { grid-template-columns: repeat( 6, 1fr ) !important; }
+	.jest-cols-7  { grid-template-columns: repeat( 7, 1fr ) !important; }
+	.jest-cols-8  { grid-template-columns: repeat( 8, 1fr ) !important; }
+	.jest-cols-9  { grid-template-columns: repeat( 9, 1fr ) !important; }
+	.jest-cols-10 { grid-template-columns: repeat(10, 1fr ) !important; }
+	.jest-cols-11 { grid-template-columns: repeat(11, 1fr ) !important; }
+	.jest-cols-12 { grid-template-columns: repeat(12, 1fr ) !important; }
+	.jest-cols-13 { grid-template-columns: repeat(13, 1fr ) !important; }
+	.jest-cols-14 { grid-template-columns: repeat(14, 1fr ) !important; }
+	.jest-cols-15 { grid-template-columns: repeat(15, 1fr ) !important; }
+	.jest-cols-16 { grid-template-columns: repeat(16, 1fr ) !important; }
+	.jest-cols-17 { grid-template-columns: repeat(17, 1fr ) !important; }
+	.jest-cols-18 { grid-template-columns: repeat(18, 1fr ) !important; }
+	.jest-cols-19 { grid-template-columns: repeat(19, 1fr ) !important; }
+	.jest-cols-20 { grid-template-columns: repeat(20, 1fr ) !important; }
+	.jest-cols-21 { grid-template-columns: repeat(21, 1fr ) !important; }
+	.jest-cols-22 { grid-template-columns: repeat(22, 1fr ) !important; }
+	.jest-cols-23 { grid-template-columns: repeat(23, 1fr ) !important; }
+	.jest-cols-24 { grid-template-columns: repeat(24, 1fr ) !important; }
+	.jest-cols-25 { grid-template-columns: repeat(25, 1fr ) !important; }
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/list.css --- */
+@layer components {
+	.jest-list {
+		display          : 'flex';
+		flex-direction   : 'column';
+		overflow-y       : 'auto'
+	}
+	.jest-list-item {
+		display          : flex;
+		align-items      : center;
+		padding          : 10px 8px;
+		cursor           : pointer;
+		user-select      : none;
+		font-size        : 0.80em;
+		color            : #bbb;
+		text-shadow      : 1px 1px 0px rgba(0,0,0,0.10);
+		border-bottom    : 1px solid rgba(0,0,0,0.4);
+		/*border-top: 1px solid rgba(255,255,255,0.05);*/
+	}
+	.jest-list-item.dragging {
+		opacity          : 0.5;
+	}
+	.jest-list-item.highlighted {
+		background-color : #444;
+		border-left      : 4px solid var(--brand-color);
+	}
+	.fold-toggle {
+		margin-right     : 6px;
+		cursor           : pointer;
+		user-select      : none;
+	}
+
+	.jest-list-item {
+		display          : 'flex';
+		align-items      : 'center';
+		gap              : '0.5em';
+	}
+	.jest-list-item.disabled {
+		opacity          : 0.5;
+		pointer-events   : none;
+	}
+
+	.jest-list-item.inactive {
+		opacity          : 0.7;
+		/*pointer-events: none;*/
+		color            : #777;
+		border-left      : 4px solid #888;
+	}
+
+	.jest-list-item.highlighted {
+		background       : #333;
+	}
+
+	.jest-list-item.hidden {
+		display          : none;
+	}
+
+	.jest-list::-webkit-scrollbar {
+		width            : 8px;
+	}
+	.jest-list::-webkit-scrollbar-thumb {
+		background       : #666;
+		border-radius    : 4px;
+	}
+	.jest-list::-webkit-scrollbar-track {
+		background       : transparent;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/ui/css/window.css --- */
+@layer components {
+	/*-----------------------------------
+	  Window Spline
+	-----------------------------------*/
+	.jest-spline {
+		box-sizing      : border-box;
+		position        : relative;
+		width           : 100%;
+		height          : 100%;
+		padding         : 0;
+		margin          : 0;
+	}
+
+	.jest-screen.disabled {
+		display         : none;
+	}
+
+	.jest-screen {
+		position        : absolute;
+		top             : 0;
+		left            : 0;
+
+		flex-grow       : 1;
+		overflow        : auto;
+		box-sizing      : border-box;
+		width           : 100%;
+		height          : 100%;
+		display         : flex;
+		flex-direction  : column;
+		user-select     : none;
+	}
+}
+
+/* --- BEGIN js/apps/jest/components/message/css/messages.css --- */
+/*==================================================
+  Notification Container
+==================================================*/
+.noticer {
+	position        : fixed;
+	bottom          : 10px;
+	right           : 10px;
+	max-height      : calc(100vh - 20px); /* Prevent overflow */
+	overflow        : hidden;
+	display         : flex;
+	flex-direction  : column;
+	gap             : 3px;
+	z-index         : 100000;
+}
+
+
+/*==================================================
+  Notification Panel Box
+==================================================*/
+.jest-notification {
+	position        : fixed;
+	bottom          : 0;
+	right           : 0;
+	margin          : 0 10px 0 0;
+	padding         : 15px;
+	background      : rgba( 33, 33, 33, 0.8 );
+	color           : #fff;
+	border-radius   : 5px;
+	box-shadow      : 0 4px 8px rgba( 0, 0, 0, 0.3 );
+	opacity         : 0;
+	transform       : scale( 0.5 );
+	position        : relative;
+	transition      :
+		translate 0.3s cubic-bezier( 0.25, 1.5, 0.5, 1 ),
+		transform 0.3s cubic-bezier( 0.25, 1.5, 0.5, 1 ),
+		opacity 0.3s ease;
+	overflow        : hidden;
+	display         : flex;
+	align-items     : center;
+	justify-content : space-between;
+	user-select     : none;
+	-webkit-user-select : none; /* Safari */
+	-ms-user-select : none; /* IE 10 and IE 11 */
+}
+
+
+/*==================================================
+  Show / Visibility Animations
+==================================================*/
+.jest-notification.jest-notif-show {
+	opacity         : 1;
+	transform       : scale( 1 );
+}
+
+.jest-notification.jest-notif-fade-out {
+	opacity         : 0;
+	transform       : scale( 0.5 );
+}
+
+
+/*==================================================
+  Slide Animations (Dismiss)
+==================================================*/
+.jest-notification.jest-notif-slide-out-right {
+	translate       : 100%;
+}
+
+.jest-notification.jest-notif-slide-out-left {
+	translate       : -100%;
+}
+
+.jest-notification.jest-notif-slide-reset {
+	translate       : 0;
+}
+
+
+/*==================================================
+  Dragging Style (While Moving)
+==================================================*/
+.jest-notification.jest-notif-slide-dragging {
+	transition      : none;
+	cursor          : grabbing;
+}
+
+
+/*==================================================
+  Notification Bounce Animation
+==================================================*/
+.jest-notification.jest-notif-bounce-down {
+	animation       : slideDownBounce 0.4s cubic-bezier( 0.25, 1.5, 0.5, 1 );
+}
+
+
+/*==================================================
+  Notification Icon
+==================================================*/
+.jest-notification-icon {
+	width           : 24px;
+	height          : 24px;
+	margin-right    : 10px;
+
+	/* Example sprite background:
+	background-image: url("https://i.sstatic.net/lJpW8.png");
+	height          : calc(100px / 5);
+	width           : calc(100px / 5);
+	background-position: calc(3/5 * 100px) 0px;
+	background-size : calc(500px / 5) calc(400px / 5);
+	*/
+}
+
+
+/*==================================================
+  Notification Text
+==================================================*/
+.jest-notification-text {
+	flex            : 1;
+	margin-right    : 10px;
+	font-size       : 14px;
+	line-height     : 1.4;
+}
+
+
+/*==================================================
+  Notification Buttons Container
+==================================================*/
+.jest-notification-buttons {
+	display         : flex;
+	gap             : 5px;
+}
+
+
+/*==================================================
+  Notification Button
+==================================================*/
+.jest-notification-button {
+	background      : #555;
+	color           : #fff;
+	border          : none;
+	border-radius   : 3px;
+	padding         : 5px 10px;
+	cursor          : pointer;
+	transition      : background 0.3s ease, transform 0.2s ease;
+	font-size       : 13px;
+	display         : flex;
+	align-items     : center;
+	justify-content : center;
+	height          : 100%; /* Matches the notification height */
+}
+
+.jest-notification-button:hover {
+	background      : #777;
+	transform       : scale( 1.05 );
+}
+
+.jest-notification-button:active {
+	background      : #999;
+	transform       : scale( 1 );
+}
+
+/* --- BEGIN js/apps/jest/components/editing/tools/css/JestToolCrate.css --- */
+/*==================================================
+  Draggable/Droppable Crate Tool
+==================================================*/
+.jest-viewport-tiler .tool-crate  {
+	position       : absolute;
+	pointer-events : none;
+	top            : 0px;
+	left           : 0px;
+	display        : block;
+	width          : 16px;
+	height         : 16px;
+	background     : #100;
+	overflow       : hidden;
+	border         : 3px solid rgba( 255, 0, 0, 1 );
+	box-shadow     : 3px 3px 3px rgba( 0, 0, 0, 0.5 );
+}
+
+/* --- BEGIN js/apps/jest/css/Jest.css --- */
+@layer base {
+	/*==================================================
+	Main Page CSS
+	==================================================*/
+	html {
+		width               : 100%;
+		height              : 100%;
+		background          : #111;
+		background-image    : url("../images/jest_logo_white.png");
+		background-size     : 10%;
+		background-repeat   : no-repeat;
+		background-position : center;
+		border              : none;
+		margin              : 0;
+		padding             : 0;
+		overflow            : hidden;
+	}
+	body {
+		width               : 100%;
+		height              : 100%;
+		background-color    : rgba( 17, 17, 17, 0.9 );
+		border              : none;
+		margin              : 0;
+		padding             : 0;
+	}
+
+
+	/*==================================================
+	Header Styles
+	==================================================*/
+	/*.jest-window-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px;
+		border-bottom: 1px solid #444;
+		color: #eee;
+		font-size: 1em;
+		font-weight: bold;
+	}*/
+
+	/*==================================================
+	Modal Style(S)
+	==================================================*/
+	/*#confirm-modal {
+		position: fixed;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background: rgba(0,0,0,0.6);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+	}
+	.modal-box {
+		background: #111;
+		color: #fff;
+		padding: 20px;
+		border: 2px solid #444;
+		border-radius: 10px;
+		text-align: center;
+		min-width: 240px;
+	}
+	.modal-buttons button {
+		margin: 10px;
+		padding: 8px 16px;
+	}
+	.hidden {
+		display: none;
+	}*/
+}
+
+/* --- BEGIN js/apps/jest/clients/css/JestCreator.css --- */
+@layer layout {
+	/*==================================================
+	  Main Level Editor Container
+	==================================================*/
+	.jest-viewport-creator {
+		display        : flex;
+		flex-direction : column;
+		user-select    : none;
+	}
+	.jest-viewport-creator.disabled {
+		opacity        : 50%;
+	}
+	.jest-creator-interface {
+		/*display        : flex;
+		flex-direction : column;
+		gap            : 0;*/
+		font-family    : sans-serif;
+		/*height         : 100%;*/
+	}
+
+
+	.jest-screen-loading-default {
+		align-items    : center;	/* Center horizontally */
+		justify-content: center;	/* Center vertically */
+	}
+	.jest-screen-loading-default > .jest-logo {
+		width          : 10%;		/* or any percent you want */
+		height         : auto;		/* maintain aspect ratio */
+		margin-left    : 0;			/* margin is percent-based */
+		max-width      : 100%;
+		max-height     : 100%;
+		pointer-events : none;		/* optional if it's purely decorative */
+		fill           : var(--brand-color);
+		filter         : drop-shadow( 0px 0px 10px rgba(255,0,0,0.5) );
+	}
+	.jest-screen-loading-default > .jest-loadbar {
+		width          : 6% !important;
+		margin         : 12px !important;
+	}
+	.jest-screen-loading-default > .jest-copyright {
+		font-size      : 0.75em;
+		color          : #888;
+		position       : absolute;
+		bottom         : 16px;
+		text-shadow    : 3px 3px 3px rgba( 0, 0, 0, 0.8 );
+	}
+
+
+	.jest-creator-interface .file-menu .file-select {
+		display        : none;
+	}
+	.jest-creator-interface .file-view {
+		overflow       : auto;
+	}
+
+	.jest-creator-interface .toolbar.interactor {
+		flex-direction : row !important;
+	}
+
+	.jest-creator-interface .toolbar.interactor button.disabled,
+	.jest-creator-interface .toolbar.interactor button:hover.disabled {
+		background     : #333;
+		color          : #888;
+	}
+
+	.history-scroll {
+		max-height     : 128px;
+	}
+
+	/*==================================================
+	  Root Viewport (Full Height Layout)
+	==================================================*/
+	.sidebar-content select {
+		width            : 100%;
+	}
+
+	/*==================================================
+	  Root Viewport (Full Height Layout)
+	==================================================*/
+	.jest-creator-viewport {
+		display         : flex;
+		flex-direction  : column;
+		width           : 100%;
+		height          : 100%;
+		min-height      : 0;
+		min-width       : 0;
+		overflow        : hidden;
+	}
+
+	/*==================================================
+	  Top System Bar (Fixed Height)
+	==================================================*/
+	.jest-creator-system {
+		flex            : 0 0 auto;
+		display         : flex;
+		align-items     : center;
+		padding         : 0;
+		background      : #333;
+		color           : white;
+		height          : auto;    /* OR fixed like 32px */
+	}
+
+	.jest-creator-system {
+		display         : flex;
+		align-items     : center;
+		justify-content : space-between; /* ensures spacing between left menu & right logo */
+		padding         : 0 10px;
+		background      : var(--brand-black);
+		color           : white;
+		height          : 50px;          /* or auto, depending on your layout */
+		position        : relative;
+		flex-wrap       : nowrap;
+		align-items     : center;       /* ← crucial */
+		border-bottom   : 2px solid #ff0101;
+		margin-bottom   : 0px;
+	}
+
+	.jest-creator-system > .file-menu {
+		display         : flex;
+		flex            : 1 1 auto;
+		align-items     : stretch;       /* allow its children to fill vertically */
+		height          : 100%;          /* ← must be 100% of parent */
+		align-items     : center;
+		/*gap             : 4px;*/
+	}
+
+	.jest-creator-system > .jest-filemenu-topright {
+		/*max-height      : 100%;
+		height          : 60%;
+		object-fit      : contain;
+		flex            : 0 0 auto;
+		margin          : 0 5px;*/
+
+		display         : flex;
+		flex-direction  : row;
+		align-items     : center;
+		justify-content : flex-end;		/* Align content to the right */
+		height          : 100%;			/* Inherit height from parent bar */
+		gap             : 10px;			/* Spacing between children */
+		/*padding-right   : 10px;*/			/* Optional: extra breathing room on the right */
+	}
+
+	.jest-creator-system > .jest-filemenu-topright .jest-username-badge {
+		box-sizing      : border-box;
+		padding         : 6px 10px;
+		/*background      : #1b1b1b;
+		border          : 1px solid #444;*/
+		border-radius   : 4px;
+		color           : #aaa;
+		font-family     : monospace;
+		font-size       : 13px;
+		line-height     : 1;
+		height          : 75%;			/* Match height of parent */
+		display         : flex;
+		align-items     : center;		/* Vertical centering */
+	}
+
+	.jest-creator-system > .jest-filemenu-topright .jest-username-badge .separator {
+		padding           : 0 5px;
+	}
+
+	.jest-creator-system > .jest-filemenu-topright .jest-username-badge svg {
+		fill            : #aaa;
+	}
+
+	.jest-creator-system > .file-menu .jest-logo {
+		height          : 50%;			/* Match container height */
+		object-fit      : contain;
+		margin-right    : 5px;
+		opacity         : 1;
+		margin-left     : 5px;
+	}
+
+	/*.jest-creator-system > .jest-filemenu-topright > .jest-logo {
+		max-height      : 100%;
+		height          : 60%;
+		object-fit      : contain;
+		flex            : 0 0 auto;
+		margin          : 0 5px;
+		opacity         : 0.1;
+	}*/
+
+	/*.jest-creator-system > .jest-filemenu-topright > .jest-username-badge {
+		background      : #1b1b1b;
+		border          : 1px solid #333;
+		color           : #eee;
+		font-family     : monospace;
+		font-size       : 13px;
+		padding         : 6px 10px;
+		border-radius   : 6px;
+		box-shadow      : 0 0 4px rgba( 255, 255, 255, 0.08 );
+		opacity         : 0.85;
+		z-index         : 5000;
+		pointer-events  : none;
+	}*/
+
+	.jest-creator-system > .file-menu .button {
+		display         : flex;
+		align-items     : stretch; /* forces child <button> to stretch */
+		height          : 100%;    /* parent must also stretch */
+	}
+
+	.jest-creator-system > .file-menu .button > button {
+		height          : 100%;
+		padding         : 0 10px;
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+	}
+
+	/*==================================================
+	  Middle Content (Expands)
+	==================================================*/
+	.jest-creator-interface {
+		display         : flex;
+		flex-direction  : row;
+		flex            : 1 1 auto;
+		min-height      : 0;
+		min-width       : 0;
+		width           : 100%;
+		height          : 100%;
+		overflow        : hidden;
+		background      : var(--brand-black);
+	}
+
+
+	/*==================================================
+	  Bottom Status Bar Container
+	==================================================*/
+	.jest-creator-status {
+		flex            : 0 0 auto;
+		display         : flex;
+		flex-direction  : column;
+		width           : 100%;
+		background      : var(--brand-black);
+		color           : #aaa;
+		padding         : 0;
+	}
+
+	/* Parent Flex Container */
+	/*.jest-creator-interface {
+		display          : flex;
+		flex-direction   : row;
+		width            : 100%;
+		height           : 100%;
+		overflow         : hidden;
+	}*/
+
+	/* Icon Dock (Far Left) */
+	.jest-creator-interface-dock {
+		flex             : 0 0 0px; /* fixed width */
+		height           : 100%;
+		background-color : #222; /* optional styling */
+		display          : flex;
+		flex-direction   : column;
+		align-items      : center;
+		justify-content  : start;
+	}
+
+	/* Left Sidebar */
+	.jest-creator-interface-left {
+		flex             : 0 0 80px; /* fixed width */
+		height           : 100%;
+		background-color : var(--brand-black);
+		overflow-y       : auto;
+	}
+
+	/* Center Working Area */
+	.jest-creator-interface-center {
+		display          : flex;
+		flex-direction   : column;
+		flex             : 1 1 auto; /* grow/shrink */
+		min-width        : 0; /* fix overflow issues */
+		min-height       : 0; /* important for overflow control */
+		height           : 100%;
+		background-color : var(--brand-black);
+		overflow         : hidden;
+		position         : relative;
+	}
+
+	/* Right Sidebar */
+	.jest-creator-interface-right {
+		flex             : 0 0 300px; /* fixed width */
+		height           : 100%;
+		/*background-color : #2f2f2f;*/
+		background       : var(--brand-black);
+		overflow-y       : auto;
+	}
+
+
+	/*==================================================
+	  Various Element(s) & Global Style(s)
+	==================================================*/
+	.jest-viewport-creator .jest-hide {
+		display        : none;
+	}
+
+
+	/*==================================================
+	  Canvas and Tileset Combined Layout
+	==================================================*/
+	.jest-viewport-creator .editor {
+		display        : flex;
+		gap            : 5px;
+		/*flex-direction : row;
+		align-items    : stretch;
+		height         : 100%;*/
+	}
+
+
+	/*==================================================
+	  Fluid Layout (for editor)
+	==================================================*/
+	.jest-viewport-creator {
+		width          : 100%;
+		height         : 100%;
+	}
+	.jest-viewport-interface {
+		display        : flex;
+		flex-direction : column;
+		height         : 100vh;
+	}
+
+	.jest-viewport-creator .menu {
+		flex           : 0 0 auto;
+		flex-wrap      : wrap;
+	}
+
+	.jest-viewport-creator .menu.interactor {
+		background     : var(--brand-black);
+	}
+
+	.jest-viewport-creator .editor {
+		/*overflow-y     : auto;*/
+		flex           : 1 1 auto; /* grow and shrink as needed */
+		min-height     : 0; /* avoid breaking scroll behavior */
+		overflow       : hidden; /* prevent canvas overflow */
+		position       : relative;
+		border-radius  : 0px;
+		background     : #444;
+		padding        : 0; /*3px 1px;*/
+		/*margin-top     : 10px;*/
+	}
+
+
+	@layer swatches {
+		/*==================================================
+		  Swatches Panel (Main Drawing Area)
+		==================================================*/
+		.swatch {
+			width          : 16px;
+			height         : 16px;
+			border         : 1px solid #444;
+			/*transition     : border 0.2s;*/
+			transition     : all 0.3s cubic-bezier(.34,1.56,.64,1) !important;
+			margin         : 5px 5px;
+		}
+
+		/*==============================================
+		  Swatches Styling
+		==============================================*/
+		.swatch-panel {
+			display            : flex;
+			flex-direction     : column;
+			gap                : 6px;
+			padding            : 6px;
+			background         : var(--brand-black);
+			border             : 1px solid #333;
+			border-radius      : 6px;
+			box-shadow         : 0 0 4px rgba(0,0,0,0.5);
+		}
+
+		.swatch-panel .swatch-list {
+			display            : flex;
+			flex-wrap          : wrap;
+			gap                : 6px;
+			padding            : 4px;
+			overflow-y         : auto;
+			max-height         : 160px;
+			border             : 1px solid #222;
+			background         : #0f0f0f;
+			border-radius      : 4px;
+		}
+
+		.swatch {
+			position           : relative;
+			width              : 16px;
+			height             : 16px;
+			display            : block;
+			background         : #222;
+			border             : 1px solid #444;
+			box-shadow         : inset 0 0 2px rgba(255, 255, 255, 0.05),
+								 2px 2px 2px rgba(0, 0, 0, 0.5);
+			cursor             : pointer;
+			/*transition         : all 0.15s ease-out;*/
+			transition         : all 0.3s cubic-bezier(.34,1.56,.64,1) !important;
+			border-radius      : 4px;
+		}
+
+		.swatch canvas {
+			width              : 100%;
+			height             : 100%;
+			display            : block;
+			image-rendering    : pixelated;
+			border-radius      : 4px;
+		}
+
+		.swatch:active {
+			transform          : scale(0.97);
+			box-shadow         : inset 0 0 5px rgba(255,0,100,0.4);
+		}
+
+		.swatch.active {
+			border-color       : #0f0;
+			box-shadow         : 0 0 10px rgba(0,255,0,0.5),
+								 0 0 6px inset rgba(0,255,0,0.3);
+		}
+
+		.swatch::after {
+			content            : '';
+			position           : absolute;
+			bottom             : -2px;
+			right              : -2px;
+			width              : 8px;
+			height             : 8px;
+			background         : #0f0;
+			border-radius      : 50%;
+			opacity            : 0;
+			transition         : opacity 0.2s ease;
+			box-shadow         : 0 0 5px rgba(0,255,0,0.6);
+			pointer-events     : none;
+		}
+
+		.swatch.active::after {
+			opacity            : 1;
+		}
+
+		.swatch.signal {
+			border            : 2px solid #e00 !important;
+			box-shadow        : 0 0 8px rgba(0,255,0,0.5);
+			animation         : swatch-flash 0.5s ease;
+		}
+
+		/* Close "X" button */
+		.swatch .button-close {
+			position       : absolute;
+			top            : -8px;
+			right          : -8px;
+			background     : rgba(0,0,0,0.6);
+			border-radius  : 4px;
+			width          : 12px;
+			height         : 12px;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+			opacity        : 0;
+			transition     : opacity 0.2s ease;
+			cursor         : pointer;
+		}
+		.swatch:hover .button-close {
+			opacity        : 1;
+		}
+		.swatch .button-close:hover {
+			background     : rgba(255, 0, 51, 0.9);
+		}
+		.swatch .button-close .ico-x {
+			width          : 12px;
+			height         : 12px;
+			stroke         : #fff;
+			pointer-events : none;
+		}
+
+		@keyframes swatch-flash {
+			0%   { transform: scale(1.4); }
+			50%  { transform: scale(0.4); }
+			100% { transform: scale(1.0); }
+		}
+	}
+
+
+	/*==================================================
+	  Canvas Panel (Main Drawing Area)
+	==================================================*/
+	.jest-viewport-creator .board {
+		display        : flex;
+		flex           : 1 1 auto;
+		/*justify-content: center;
+		align-items    : center;*/
+		background     : #111;
+		border-top     : 1px solid #111;
+		border-left    : 1px solid #111;
+		border-bottom  : 1px solid #222;
+		border-right   : 1px solid #222;
+		cursor         : crosshair;
+		overflow       : auto;
+		/*max-width      : calc(100% - 200px);*/
+		max-height     : 100vh;
+		box-sizing     : border-box;
+		box-shadow     : 5px 5px 5px inset #000;
+		/* Background Style(s) */
+		background-image      :
+			linear-gradient( rgba(16,16,16,1), rgba(16,16,16,.98) ),
+			var(--diamond-bg);
+		background-size       : 1.8%;
+		background-repeat     : repeat;
+		background-position   : center;
+		background-attachment : fixed;
+		/*background-blend-mode : multiply;*/ /* or overlay/soft-light */
+	}
+	.jest-viewport-creator .board canvas {
+		display        : block;
+		margin         : 0 auto;
+		box-shadow     : 0 0 24px 10px rgba( 0, 0, 0, 1 );
+	}
+
+	/*==================================================
+	  Tileset Panel (Right Sidebar)
+	==================================================*/
+	.jest-viewport-creator .sidebar {
+		display        : flex;
+		flex-direction : column;
+		width          : 200px;
+		min-width      : 180px;
+		background     : #222;
+		color          : white;
+		padding        : 0px;
+		box-sizing     : border-box;
+		overflow       : scroll;
+		max-height     : 100vh;
+		flex-shrink    : 0;
+		flex-grow      : 0;
+	}
+
+	/*==================================================
+	  Tile Preview (Selected Tile Display)
+	==================================================*/
+	.jest-viewport-creator .tile-preview {
+		padding        : 5px 10px;
+		margin-bottom  : 5px;
+		background     : #333;
+		color          : #fff;
+		font-weight    : bold;
+	}
+
+
+	/*==================================================
+	  Tile List Container (Scrollable)
+	==================================================*/
+	.jest-viewport-creator .tile-list {
+		display        : flex;
+		flex-direction : column;
+		overflow-y     : auto;
+		gap            : 4px;
+		flex-grow      : 1;
+		padding-right  : 5px;
+		max-height     : 100%;
+	}
+
+
+	/*==================================================
+	  Tile Row (Each Horizontal Line of Tiles)
+	==================================================*/
+	.jest-viewport-creator .tile-row {
+		display        : flex;
+		flex-direction : row;
+		gap            : 4px;
+	}
+
+
+	/*==================================================
+	  Individual Tile Option Button
+	==================================================*/
+	.jest-viewport-creator .tile-option {
+		width          : 32px;
+		height         : 32px;
+		background     : #555;
+		color          : white;
+		display        : flex;
+		align-items    : center;
+		justify-content: center;
+		cursor         : pointer;
+		border         : 1px solid #222;
+		transition     : background 0.2s;
+		font-size      : 12px;
+	}
+
+	.jest-viewport-creator .tile-option:hover {
+		background     : #777;
+	}
+
+
+	/*==================================================
+	  Swatch Display(s)
+	  ==================================================*/
+	.jest-window-viewport .jest-creator-interface-left .display.swatch {
+		margin           : 6px 6px;
+	}
+	.jest-window-viewport .display.swatch {
+		background       : #111;
+		border           : 2px solid #333;
+		padding          : 0;
+		line-height      : 1px;
+		/*cursor           : pointer;*/
+		transition       : background 0.2s ease;
+		border-radius    : 3px;
+		box-shadow       : 2px 2px 2px 0px #111;
+	}
+	.jest-window-viewport .display.swatch-fg {
+		z-index          : 3;
+		position         : relative;
+		margin-left      : -8px !important;
+		/*top              : -6px;*/
+	}
+	.jest-window-viewport .display.swatch-bg {
+		z-index          : 2;
+		position         : relative;
+		margin-left      : 24px !important;
+		/*top              : 10px;*/
+		margin-top       : -16px !important;
+	}
+
+
+	/*==================================================
+	  Inner Status Row (Row Flex)
+	==================================================*/
+	.jest-creator-status .statusbar {
+		display         : flex;
+		flex-direction  : row;
+		align-items     : center;
+		justify-content : space-between;
+		height          : auto;
+		width           : 100%;
+		padding         : 5px 10px;
+		box-sizing      : border-box;
+	}
+
+	/*==================================================
+	  Left Status Text
+	==================================================*/
+	.jest-creator-status .statusbar .status {
+		flex            : 1 1 auto;
+		overflow        : hidden;
+		text-overflow   : ellipsis;
+		white-space     : nowrap;
+		font-size       : 11px;
+		color           : #aaa;
+		margin          : 0;
+	}
+
+	/*==================================================
+	  Copyright Notice
+	==================================================*/
+	.jest-creator-status .statusbar .jest-copyright {
+		/*flex            : 1 1 auto;
+		overflow        : hidden;
+		text-overflow   : ellipsis;
+		white-space     : nowrap;
+		font-size       : 11px;*/
+		color           : rgba( 255, 255, 255, 0.3 );
+		margin          : 0;
+		padding         : 0 0 0 10px;
+		font-size       : 0.65em;
+	}
+
+	/*==================================================
+	  Loadbar (Flush Right)
+	==================================================*/
+	.jest-creator-status .statusbar .jest-loadbar {
+		flex            : 0 0 278px;
+		height          : 14px;
+		width           : 100px;
+		margin-right    : 0 !important;
+	}
+
+	/*==================================================
+	  Additional Display Styling
+	==================================================*/
+	.jest-creator-status .statusbar .display {
+		margin          : 0 0 0 0;
+		padding         : 0;
+		font-size       : 0.65em;
+		color           : #bbb;
+		text-shadow     : 2px 2px 2px rgba(16,16,16,0.3);
+		background      : #111;
+		height          : 22px;
+		line-height     : 22px;
+		padding         : 0 10px;
+		border-radius   : 5px;
+		border-radius   : 3px;
+		border-bottom   : 1px solid #222;
+		border-right    : 1px solid #222;
+		border-top      : 1px solid #000;
+		border-left     : 1px solid #000;
+		box-shadow      : inset 2px 2px 2px rgba(0, 0, 0, 0.5)
+	}
+
+	.jest-creator-status .statusbar .display strong {
+		color           : #eb394b;
+	}
+}
+
+/* --- BEGIN js/apps/jest/clients/css/JestAnimator.css --- */
+@layer layout {
+	/*==================================================
+	  Main Level Editor Container
+	==================================================*/
+	/*.jest-viewport-animator {
+		display        : flex;
+		flex-direction : column;
+		user-select    : none;
+	}*/
+}
+
+/* --- BEGIN js/apps/jest/clients/plugins/creator/online/cloud/css/cloud.css --- */
+@layer sidebar {
+	/*==============================================
+	  Cloud Sidebar Styling
+	==============================================*/
+	.cloud-panel button {
+		margin-top         : 6px;
+		padding            : 6px 10px;
+		background         : #222;
+		color              : #eee;
+		border             : 1px solid #444;
+		border-radius      : 4px;
+		cursor             : pointer;
+		transition         : background 0.2s ease, transform 0.2s ease;
+		box-shadow         : 2px 2px 2px rgba(0,0,0,0.5);
+		text-transform     : uppercase;
+		font-size          : 0.75em;
+		letter-spacing     : 1px;
+	}
+
+	.cloud-panel button:hover {
+		background         : #444;
+		color              : #fff;
+		transform          : scale( 1.03 );
+	}
+
+	.cloud-panel button:active {
+		transform          : scale( 0.97 );
+		box-shadow         : inset 0 0 4px rgba(0,255,100,0.5);
+	}
+}
+
+/* --- BEGIN js/apps/jest/clients/plugins/creator/tools/swatches/css/swatches.css --- */
+@layer sidebar {
+	/*==============================================
+	  Swatches Sidebar Styling
+	==============================================*/
+
+	.swatch-panel .swatch:hover {
+		cursor         : pointer;
+	}
+
+	.swatch-panel .swatch:hover {
+		border-color   : var(--brand-color) !important;
+		transform      : scale(1.2) !important;
+	}
+
+	.swatch-panel .swatch:hover {
+		border-color       : #77ff99;
+		box-shadow         : 0 0 6px rgba(0,255,100,0.25),
+							 2px 2px 2px rgba(0,0,0,0.5);
+		transform          : scale(1.05);
+		transform          : scale(1.2) !important;
+		z-index            : 10;
+		border-color       : var(--brand-color) !important;
+	}
+
+	.swatch-panel button {
+		margin-top         : 6px;
+		padding            : 6px 10px;
+		background         : #222;
+		color              : #eee;
+		border             : 1px solid #444;
+		border-radius      : 4px;
+		cursor             : pointer;
+		transition         : background 0.2s ease, transform 0.2s ease;
+		box-shadow         : 2px 2px 2px rgba(0,0,0,0.5);
+		text-transform     : uppercase;
+		font-size          : 0.75em;
+		letter-spacing     : 1px;
+	}
+
+	.swatch-panel button:hover {
+		background         : #444;
+		color              : #fff;
+		transform          : scale( 1.03 );
+	}
+
+	.swatch-panel button:active {
+		transform          : scale( 0.97 );
+		box-shadow         : inset 0 0 4px rgba(0,255,100,0.5);
+	}
+}
+
+/* --- BEGIN js/apps/jest/clients/plugins/creator/tools/floodfill/css/floodfill.css --- */
+/*-----------------------------
+  Form Wrapper
+-----------------------------*/
+/*.sidebar-content .menu.form.floodfill-options {
+	margin              : 5px;
+	padding             : 5px 10px;
+}*/
+
+/* --- BEGIN js/apps/jest/clients/plugins/creator/tools/flipbook/css/flipbook.css --- */
+@layer flipbook {
+	/*==============================================
+	  Flipbook Plugin Styling
+	==============================================*/
+	.sidebar-content .tool-flipbook-nav .toolbar {
+		display           : block;
+	}
+}
+

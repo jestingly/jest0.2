@@ -1,0 +1,253 @@
+/*==================================================
+  Shared Panel Styling (File Menu, Toolbar, Tabs)
+==================================================*/
+.jest-window-viewport .file-menu,
+.jest-window-viewport .toolbar,
+.jest-window-viewport .tabbar {
+	display          : flex;
+	gap              : 6px;
+	padding          : 5px 10px 5px 10px;
+	background       : #222;
+	color            : #eee;
+}
+.jest-window-viewport .menu {
+	display          : flex;
+	align-items      : center;
+	/*justify-content: space-between;*/
+	min-height       : 16px;
+	line-height      : 16px;
+}
+.jest-window-viewport .toolbar {
+	padding          : 8px;
+}
+.jest-window-viewport .tabbar {
+	padding-bottom   : 0;
+	padding          : 0 8px;
+}
+
+
+/*==================================================
+  Global Button Style(s)
+==================================================*/
+.jest-window-viewport .menu button.disabled {
+	opacity          : 0.5;
+	cursor           : not-allowed;
+	transform        : scale(1);
+	transition       : none;
+}
+.jest-window-viewport .menu button.active {
+	cursor           : default;
+	transition       : none;
+}
+
+
+/*==================================================
+  File Menu Buttons
+==================================================*/
+.jest-window-viewport .file-menu {
+	gap              : 0;
+	padding          : 0;
+	background       : transparent;
+}
+.jest-window-viewport .file-menu button {
+	text-transform   : capitalize;
+	background       : #444;
+	color            : white;
+	border           : none;
+	padding          : 6px 10px;
+	cursor           : pointer;
+	transition       : background 0.2s ease;
+}
+.jest-window-viewport .file-menu button.disabled,
+.jest-window-viewport .file-menu button.disabled:hover {
+	background       : transparent !important;;
+}
+.jest-window-viewport .file-menu button:hover {
+	background       : #666;
+}
+
+
+/*==================================================
+  Toolbar Menu Buttons
+==================================================*/
+.jest-window-viewport .toolbar {
+	background       : #1a1a1a;
+}
+.jest-window-viewport .toolbar button {
+	background       : #111;
+	color            : #e0e0e0;
+	border           : none;
+	padding          : 6px 10px;
+	cursor           : pointer;
+	transition       : background 0.2s ease;
+	border-radius    : 3px;
+	box-shadow       : 2px 2px 2px 0px #111;
+	font-weight      : normal;
+	transition       : none;
+}
+.jest-window-viewport .toolbar button:hover {
+	background       : #666;
+	color            : #fff;
+	font-weight      : normal;
+}
+.jest-window-viewport .toolbar button.active {
+	background       : #d00;
+	color            : #fff;
+	font-weight      : bold;
+	cursor           : default;
+	transition       : none;
+}
+.jest-window-viewport .toolbar button:hover.active,
+.jest-window-viewport .toolbar button:hover.disabled {
+	transform        : none;
+	transition       : none;
+}
+.jest-window-viewport .toolbar button:hover {
+	transform        : scale(1.08);
+	transition       : transform 0.15s ease-out;
+}
+.jest-window-viewport .toolbar button {
+	transition       : transform 0.3s cubic-bezier(.34,1.56,.64,1); /* fake bounce */
+}
+
+
+/*==================================================
+  Tabbar Menu Buttons
+==================================================*/
+.jest-window-viewport .tabbar {
+	background       : #1a1a1a;
+}
+.jest-window-viewport .tabbar button {
+	background       : #222;
+	color            : white;
+	border           : none;
+	padding          : 6px 10px;
+	cursor           : pointer;
+	transition       : background 0.2s ease;
+	border-radius    : 5px 5px 0 0;
+}
+.jest-window-viewport .tabbar button:hover {
+	background       : #333;
+}
+.jest-window-viewport .tabbar button.active {
+	background       : #444;
+}
+.jest-window-viewport .tabbar button.active:hover {
+	background       : #444;
+}
+
+/*-----------------------------------
+  Sidebar Panel Base
+-----------------------------------*/
+.collapsible-menu {
+	display          : flex;
+	flex-direction   : column;
+	/*width            : 240px;*/
+	/*background       : #1a1a1a;*/
+	border-right     : 1px solid #333;
+	overflow-y       : auto;
+}
+
+/*-----------------------------------
+  Sections Container
+-----------------------------------*/
+.collapsible-menu .sidebar-sections {
+	display          : flex;
+	flex-direction   : column;
+	/*gap              : 4px;*/
+	padding          : 18px;
+}
+
+/*-----------------------------------
+  Individual Section Wrapper
+-----------------------------------*/
+.collapsible-menu .sidebar-section {
+	/*border-bottom    : 1px solid #333;*/
+	transition       : background 0.3s ease;
+}
+
+/*-----------------------------------
+  Title Bar
+-----------------------------------*/
+.collapsible-menu .sidebar-title {
+	position         : relative;
+	display          : flex;
+	align-items      : center;
+	/*gap              : 8px;*/
+	padding          : 10px;
+	cursor           : pointer;
+	background       : #111;
+    border-radius    : 5px;
+	color            : #eee;
+	/*font-weight      : bold;*/
+	font-size        : 13px;
+	user-select      : none;
+	transition       : background 0.3s ease;
+	color            : #aaa;
+	text-shadow      : 1px 1px 1px #500;
+	padding-left     : 30px; /* make room for the arrow */
+	margin-bottom    : 5px;
+}
+
+.collapsible-menu .sidebar-title::before {
+	content          : '▶'; /* right-pointing triangle */
+	position         : absolute;
+	left             : 8px;
+	top              : 50%;
+	transform        : translateY(-50%) rotate(0deg);
+	transform-origin : center center;
+	transition       : transform 0.2s ease;
+	font-size        : 0.5em;
+	color            : #999;
+}
+
+/*-----------------------------------
+Rotate arrow when open
+-----------------------------------*/
+.collapsible-menu .sidebar-section.open .sidebar-title::before {
+	content          : '▼'; /* down-pointing triangle */
+	/*transform        : translateY(-50%) rotate(90deg);*/
+	/*color            : #eee;*/
+}
+
+/*-----------------------------------
+  Title Icon
+-----------------------------------*/
+.collapsible-menu .sidebar-icon {
+	width            : 16px;
+	height           : 16px;
+}
+
+/*-----------------------------------
+  Collapsible Content
+  -----------------------------------*/
+.collapsible-menu .sidebar-content-wrap {
+	overflow         : auto;
+}
+.collapsible-menu .sidebar-content {
+	overflow         : hidden;
+	overflow-x       : hidden;
+	max-height       : 0;
+	padding          : 0;
+	transition       : max-height 0.3s ease, padding 0.3s ease;
+}
+
+/*-----------------------------------
+  Open State Overrides
+-----------------------------------*/
+.collapsible-menu .sidebar-section.open .sidebar-title {
+	background       : #111;
+	color            : #eee;
+}
+.collapsible-menu .sidebar-section .sidebar-title:hover {
+	background       : #333;
+	color            : #eee;
+}
+.collapsible-menu .sidebar-section .sidebar-content {
+	padding          : 0 10px 0;
+}
+.collapsible-menu .sidebar-section.open .sidebar-content {
+	/* when open, padding restores to top/bottom */
+	padding          : 5px 10px 10px;
+	/*overflow-x       : scroll;*/
+}

@@ -1,0 +1,37 @@
+{
+	"name"    : "jest-harlequin",
+	"version" : "0.1.0",
+	"description": "Game simulator & level editor.",
+	"main"    : "main.js",
+
+	"build"   :
+		{
+			"appId"       : "com.jest.harlequin",
+			"productName" : "JEST",
+			"copyright"   : "Copyright © 2025",
+			"files"       :
+				[
+					"**/*"
+				],
+			"mac":
+				{
+					"target"  : "dmg",
+					"icon"    : "build/javatar.icns"
+				},
+			"win":
+				{
+					"target"  : "nsis",
+					"icon"    : "build/javatar.ico"
+				},
+			"linux":
+				{
+					"target"  : "AppImage"
+				}
+		},
+
+	"scripts":
+		{
+			"start"   : "electron .",
+			"build"   : "electron-builder"
+		}
+}

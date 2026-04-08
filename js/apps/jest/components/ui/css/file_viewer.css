@@ -1,0 +1,150 @@
+@layer components {
+	/***********************************************
+	 * Cloud Save List Viewer Layout
+	 ***********************************************/
+	.jest-file-viewer {
+		background-color     : #161616;
+		/*border               : 1px solid #333;
+		border-radius        : 6px;*/
+		overflow             : hidden;
+		font-family          : 'Inter', sans-serif;
+		font-size            : 12px;
+		color                : #f0f0f0;
+	}
+
+	/***********************************************
+	 * Grid Layout — 5 Equal Columns
+	 ***********************************************/
+	.list-header,
+	.col-row {
+		padding              : 0;
+		display              : grid !important;
+		grid-template-columns: repeat(5, 1fr) !important; /* 5 columns: name, type, version, note, date */
+	}
+
+	/***********************************************
+	 * Header Row (Sticky)
+	 ***********************************************/
+	.list-header {
+		position             : sticky;
+		top                  : 0;
+		background-color     : #1e1e1e;
+		border-bottom        : 1px solid #444;
+		z-index              : 10;
+	}
+
+	.col-header {
+		padding              : 8px 10px;
+		font-weight          : bold;
+		color                : #ccc;
+		text-transform       : uppercase;
+		letter-spacing       : 0.5px;
+		white-space          : nowrap;
+		cursor               : pointer;
+		border-right         : 1px solid #333;
+		overflow             : hidden;
+		text-overflow        : ellipsis;
+	}
+
+	.col-header:hover {
+		background-color     : #333;
+	}
+
+	.col-header:last-child {
+		border-right         : none;
+	}
+
+	/***********************************************
+	 * List Body
+	 ***********************************************/
+	.list-body {
+		max-height           : 150px;
+		/*overflow-y           : auto;*/
+		display              : flex;
+		flex-direction       : column;
+	}
+
+	/***********************************************
+	 * Row Item Style
+	 ***********************************************/
+	.col-row {
+		padding              : 0 !important;
+		background-color     : #111;
+		border-bottom        : 1px solid #222;
+		transition           : background-color 0.15s ease-in-out;
+	}
+	.col-row:nth-child(odd) {
+		background-color     : #111;
+	}
+	.col-row:nth-child(even) {
+		background-color     : #1a1a1a;
+	}
+
+	.col-row:hover {
+		background-color     : #222;
+	}
+
+	.jest-list-item.col-row.selected,
+	.jest-list-item.col-row.active {
+		background-color     : #522;
+		color                : #eee;
+	}
+
+	/***********************************************
+	 * Row Column Fields
+	 ***********************************************/
+	.col-field {
+		padding              : 10px 10px;
+		overflow             : hidden;
+		text-overflow        : ellipsis;
+		white-space          : nowrap;
+		border-right         : 1px solid #222;
+	}
+
+	.col-field:last-child {
+		border-right         : none;
+	}
+
+	/***********************************************
+	 * Scrollbar Override (Optional)
+	 ***********************************************/
+	.list-body::-webkit-scrollbar {
+		width                : 6px;
+	}
+	.list-body::-webkit-scrollbar-thumb {
+		background-color     : #333;
+		border-radius        : 3px;
+	}
+	.list-body::-webkit-scrollbar-track {
+		background-color     : #1a1a1a;
+	}
+
+	/***********************************************
+	 * Jest Grid Column Count Utilities (1–25)
+	 ***********************************************/
+	.jest-cols-1  { grid-template-columns: repeat( 1, 1fr ) !important; }
+	.jest-cols-2  { grid-template-columns: repeat( 2, 1fr ) !important; }
+	.jest-cols-3  { grid-template-columns: repeat( 3, 1fr ) !important; }
+	.jest-cols-4  { grid-template-columns: repeat( 4, 1fr ) !important; }
+	.jest-cols-5  { grid-template-columns: repeat( 5, 1fr ) !important; }
+	.jest-cols-6  { grid-template-columns: repeat( 6, 1fr ) !important; }
+	.jest-cols-7  { grid-template-columns: repeat( 7, 1fr ) !important; }
+	.jest-cols-8  { grid-template-columns: repeat( 8, 1fr ) !important; }
+	.jest-cols-9  { grid-template-columns: repeat( 9, 1fr ) !important; }
+	.jest-cols-10 { grid-template-columns: repeat(10, 1fr ) !important; }
+	.jest-cols-11 { grid-template-columns: repeat(11, 1fr ) !important; }
+	.jest-cols-12 { grid-template-columns: repeat(12, 1fr ) !important; }
+	.jest-cols-13 { grid-template-columns: repeat(13, 1fr ) !important; }
+	.jest-cols-14 { grid-template-columns: repeat(14, 1fr ) !important; }
+	.jest-cols-15 { grid-template-columns: repeat(15, 1fr ) !important; }
+	.jest-cols-16 { grid-template-columns: repeat(16, 1fr ) !important; }
+	.jest-cols-17 { grid-template-columns: repeat(17, 1fr ) !important; }
+	.jest-cols-18 { grid-template-columns: repeat(18, 1fr ) !important; }
+	.jest-cols-19 { grid-template-columns: repeat(19, 1fr ) !important; }
+	.jest-cols-20 { grid-template-columns: repeat(20, 1fr ) !important; }
+	.jest-cols-21 { grid-template-columns: repeat(21, 1fr ) !important; }
+	.jest-cols-22 { grid-template-columns: repeat(22, 1fr ) !important; }
+	.jest-cols-23 { grid-template-columns: repeat(23, 1fr ) !important; }
+	.jest-cols-24 { grid-template-columns: repeat(24, 1fr ) !important; }
+	.jest-cols-25 { grid-template-columns: repeat(25, 1fr ) !important; }
+}

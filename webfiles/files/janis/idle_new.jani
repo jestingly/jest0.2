@@ -1,0 +1,78 @@
+SPRITE    1 BODY            0    0   80   80 body front idle 1
+SPRITE    2 BODY           80    0   80   80 body front idle 2
+SPRITE    3 BODY          160    0   80   80 body front idle 3
+SPRITE    4 BODY          240    0   80   80 body front idle 4
+SPRITE    5 BODY            0   80   80   80 body right idle 1
+SPRITE    6 BODY           80   80   80   80 body right idle 2
+SPRITE    7 BODY          160   80   80   80 body right idle 3
+SPRITE    8 BODY          240   80   80   80 body right idle 4
+SPRITE    9 BODY            0  160   80   80 body left idle 1
+SPRITE   10 BODY           80  160   80   80 body left idle 2
+SPRITE   11 BODY          160  160   80   80 body left idle 3
+SPRITE   12 BODY          240  160   80   80 body left idle 4
+SPRITE   13 BODY            0  240   80   80 body back idle 1
+SPRITE   14 BODY           80  240   80   80 body back idle 2
+SPRITE   15 BODY          160  240   80   80 body back idle 3
+SPRITE   16 BODY          240  240   80   80 body back idle 4
+SPRITE   17 HEAD            0    0   80   80 head front idle 1
+SPRITE   18 HEAD           80    0   80   80 head front idle 2
+SPRITE   19 HEAD          160    0   80   80 head front idle 3
+SPRITE   20 HEAD          240    0   80   80 head front idle 4
+SPRITE   21 HEAD            0   80   80   80 head right idle 1
+SPRITE   22 HEAD           80   80   80   80 head right idle 2
+SPRITE   23 HEAD          160   80   80   80 head right idle 3
+SPRITE   24 HEAD          240   80   80   80 head right idle 4
+SPRITE   25 HEAD            0  160   80   80 head left idle 1
+SPRITE   26 HEAD           80  160   80   80 head left idle 2
+SPRITE   27 HEAD          160  160   80   80 head left idle 3
+SPRITE   28 HEAD          240  160   80   80 head left idle 4
+SPRITE   29 HEAD            0  240   80   80 head back idle 1
+SPRITE   30 HEAD           80  240   80   80 head back idle 2
+SPRITE   31 HEAD          160  240   80   80 head back idle 3
+SPRITE   32 HEAD          240  240   80   80 head back idle 4
+SPRITE   33 HAIR            0    0   80   80 hair front idle 1
+SPRITE   34 HAIR           80    0   80   80 hair front idle 2
+SPRITE   35 HAIR          160    0   80   80 hair front idle 3
+SPRITE   36 HAIR          240    0   80   80 hair front idle 4
+SPRITE   37 HAIR            0   80   80   80 hair right idle 1
+SPRITE   38 HAIR           80   80   80   80 hair right idle 2
+SPRITE   39 HAIR          160   80   80   80 hair right idle 3
+SPRITE   40 HAIR          240   80   80   80 hair right idle 4
+SPRITE   41 HAIR            0  160   80   80 hair left idle 1
+SPRITE   42 HAIR           80  160   80   80 hair left idle 2
+SPRITE   43 HAIR          160  160   80   80 hair left idle 3
+SPRITE   44 HAIR          240  160   80   80 hair left idle 4
+SPRITE   45 HAIR            0  240   80   80 hair back idle 1
+SPRITE   46 HAIR           80  240   80   80 hair back idle 2
+SPRITE   47 HAIR          160  240   80   80 hair back idle 3
+SPRITE   48 HAIR          240  240   80   80 hair back idle 4
+
+OPTS
+LOOP
+DEFAULTBODY bodies/Body_00.png
+DEFAULTHEAD heads/Head_00.png
+DEFAULTHAIR hairstyles/Hairstyle_03.png
+OPTSEND
+
+ANI
+   1 -16 -32,  17 -16 -32,  33 -16 -32
+   5 -16 -32,  21 -16 -32,  37 -16 -32
+   9 -16 -32,  25 -16 -32,  41 -16 -32
+  13 -16 -32,  29 -16 -32,  45 -16 -32
+
+   2 -16 -32,  18 -16 -32,  34 -16 -32
+   6 -16 -32,  22 -16 -32,  38 -16 -32
+  10 -16 -32,  26 -16 -32,  42 -16 -32
+  14 -16 -32,  30 -16 -32,  46 -16 -32
+
+   3 -16 -32,  19 -16 -32,  35 -16 -32
+   7 -16 -32,  23 -16 -32,  39 -16 -32
+  11 -16 -32,  27 -16 -32,  43 -16 -32
+  15 -16 -32,  31 -16 -32,  47 -16 -32
+
+   4 -16 -32,  20 -16 -32,  36 -16 -32
+   8 -16 -32,  24 -16 -32,  40 -16 -32
+  12 -16 -32,  28 -16 -32,  44 -16 -32
+  16 -16 -32,  32 -16 -32,  48 -16 -32
+
+ANIEND

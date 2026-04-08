@@ -1,0 +1,195 @@
+@layer components {
+	/*-----------------------------------
+	  Modal Base Styles
+	-----------------------------------*/
+	.jest-modal {
+		position        : fixed;
+		top             : 0;
+		left            : 0;
+		width           : 100vw;
+		height          : 100vh;
+		z-index         : 9999;
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		pointer-events  : all;
+	}
+	.jest-modal.hidden {
+		display         : none;
+	}
+
+	/*-----------------------------------
+	  Overlay Background
+	-----------------------------------*/
+	.modal-overlay {
+		position        : absolute;
+		top             : 0;
+		left            : 0;
+		width           : 100%;
+		height          : 100%;
+		background      : rgba(0, 0, 0, 0.6);
+		/*backdrop-filter : blur(2px);*/
+	}
+
+	/*-----------------------------------
+	  Modal Container
+	-----------------------------------*/
+	.modal-box {
+		position        : relative;
+		background      : #111;
+		border          : 2px solid #444;
+		border-radius   : 8px;
+		padding         : 20px;
+		width           : 300px;
+		z-index         : 10000;
+		box-shadow      : 10px 10px 20px rgba(0, 0, 0, 0.9);
+		display         : flex;
+		flex-direction  : column;
+		gap             : 10px;
+		font-family     : Arial, sans-serif;
+		transition      : all 0.15s ease; /* Smooth animation for all changes */
+	}
+	.modal-box:hover {
+		background      : var(--color-ui);
+		border-color    : #666;
+	}
+
+	/*-----------------------------------
+	  Title / Text / Input / Buttons
+	-----------------------------------*/
+	.modal-title {
+		font-size       : 22px;
+		font-weight     : bold;
+		color           : #fff;
+	    margin          : 0;
+		text-align      : center;
+	}
+
+	.modal-text {
+		font-size       : 14px;
+		color           : #ccc;
+		text-align      : center;
+	}
+
+	.modal-input {
+		margin-top      : 6px;
+	}
+	.modal-input:empty {
+		display         : none;
+	}
+
+	.modal-input .input.jest-panel {
+		display         : flex;
+		align-items     : center;
+		width           : 100%;
+		gap             : 8px; /* space between label and input (optional) */
+	}
+
+	.modal-input label {
+		width           : 90%;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 13px;
+		text-align      : left;
+	}
+
+	.modal-input select,
+	.modal-input input {
+		flex            : 1;
+		width           : 90%;
+		padding         : 10px;
+		margin          : 0 0 10px 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #333;
+		color           : #eee;
+		transition      : all 0.15s ease;
+	}
+	.modal-input input:hover {
+		background      : #444;
+	}
+
+	.modal-buttons {
+		display         : flex;
+		justify-content : center;
+		gap             : 10px;
+		margin-top      : 10px;
+	}
+
+	.modal-buttons button {
+		background-color: #222; /* Default button color */
+		color           : #fff; /* Default text color */
+		border          : 2px solid #444; /* Default border */
+		padding         : 10px 20px;
+		font-size       : 16px;
+		border-radius   : 5px;
+		cursor          : pointer;
+		transition      : var(--transition); /* Smooth animation for all changes */
+	}
+
+	.modal-buttons button:hover {
+		background-color: #222; /* Default button color */
+		color           : #f00; /* Default text color */
+		border          : 2px solid #444; /* Default border */
+		border-color    : #f00;
+		transform       : scale(1.1); /* Slightly enlarge the button */
+		box-shadow      : 0 4px 10px rgba(255, 0, 0, var(--opacity-disabled)); /* Add glowing shadow */
+	}
+
+
+	/*-----------------------------------
+	  Match Textarea to Modal Input Field
+	-----------------------------------*/
+	.modal-input .input.textarea.jest-panel {
+		display         : flex;
+		align-items     : center;
+		width           : 100%;
+		gap             : 8px;
+	}
+
+	.modal-input .input.textarea.jest-panel label {
+		width           : 50px;
+		min-width       : 50px;
+		margin-top      : 6px;
+		margin-right    : 10px;
+		color           : #888;
+		font-size       : 11px;
+	}
+
+	.modal-input .input.textarea.jest-panel textarea {
+		flex            : 1;
+		width           : 100%;
+		min-height      : 60px; /* or 80px for more space */
+		padding         : 10px;
+		margin          : 10px 0;
+		font-size       : 14px;
+		border          : 1px solid #555;
+		border-radius   : 4px;
+		background      : #333;
+		color           : #eee;
+		transition      : all 0.15s ease;
+		resize          : vertical;
+	}
+
+	.modal-input .input.textarea.jest-panel textarea:hover {
+		background      : #444;
+	}
+
+	.modal-input .input.text.jest-panel {
+		display         : flex;
+		flex-direction  : column; /* Force label/input/caption to stack vertically */
+	}
+
+	.modal-input .jest-caption {
+		font-size       : 0.75rem;
+		color           : #444;
+		margin-top      : -10px;
+		padding         : 0 10px;
+	}
+
+	.modal-input .jest-caption b {
+		color           : #555;
+	}
+}

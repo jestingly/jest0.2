@@ -1,0 +1,9 @@
+{
+	"tilesets":
+		[
+			{
+				"stem"      : "pics1",
+				"tiledefs"  : "pics1"
+			}
+		]
+}

@@ -1,0 +1,22 @@
+:root {
+	--brand-black				: #171717;
+	--brand-white				: #cecece;
+	--brand-color				: rgba( 254, 2, 0, 1 ); /*#ff0033;*/
+	--color-text				: #00ff00;
+	--color-bg					: #000000;
+	--color-ui					: #1a1a1a;
+	--color-accent				: #00cc66;
+	--font-base					: sans-serif;
+	--font-size-base			: 1rem;
+	--font-size-sm				: 0.875rem;
+	--font-size-lg				: 1.25rem;
+	--border-radius				: 0.5rem;
+	--shadow-sm					: 0 1px 2px rgba(0,0,0,0.1);
+	--shadow-md					: 0 4px 6px rgba(0,0,0,0.1);
+	--transition				: all 0.3s ease;
+	--gap						: 1rem;
+	--padding					: 1rem;
+	--padding-lg				: 2rem;
+	--opacity-disabled			: 0.5;
+	--border-radius-dashboard	: 0.75em;
+}

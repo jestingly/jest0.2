@@ -1,0 +1,8 @@
+@layer flipbook {
+	/*==============================================
+	  Flipbook Plugin Styling
+	==============================================*/
+	.sidebar-content .tool-flipbook-nav .toolbar {
+		display           : block;
+	}
+}

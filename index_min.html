@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			JEST®
+		</title>
+		<script type="text/javascript">
+			//-----------------------------
+			// OS + Browser Detector
+			//-----------------------------
+			const DeviceEnv = {
+				getOS() {
+					const platform = navigator?.userAgentData?.platform || navigator.platform || 'unknown';
+					if ( /Mac/i.test(platform) )		return 'mac';
+					if ( /Win/i.test(platform) )		return 'windows';
+					if ( /Linux/i.test(platform) )		return 'linux';
+					return 'unknown';
+				},
+				getBrowser() {
+					const ua = navigator.userAgent;
+					if ( /Electron/.test(ua) )			return 'electron';
+					if ( /Chrome\/\d+/.test(ua) && !/Edg/.test(ua) )	return 'chrome';
+					if ( /Safari\/\d+/.test(ua) && !/Chrome/.test(ua) ) return 'safari';
+					if ( /Firefox/.test(ua) )			return 'firefox';
+					if ( /Edg/.test(ua) )				return 'edge';
+					return 'unknown';
+				},
+				isElectron() {
+					return /Electron/.test(navigator.userAgent);
+				}
+			};
+		</script>
+<!-- jest_css begin -->
+<link rel="stylesheet" href="css/bundle.min.css">
+<!-- jest_css end -->
+	</head>
+	<body>
+<!-- jest_js begin -->
+<script src="js/bundle.min.js"></script>
+<!-- jest_js end -->
+	</body>
+</html>
