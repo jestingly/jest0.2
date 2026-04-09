@@ -1,0 +1,93 @@
+/*******************************************************
+	JEST® ENGINE LICENSE (v0.2)
+	Copyright (c) 1999–2026 Antago
+	This license governs use of the JEST® Engine source code.
+********************************************************/
+
+-------------------------------------------------------
+1. DEFINITIONS
+-------------------------------------------------------
+
+"Software" refers to the JEST® Engine source code and all associated files.
+
+"Non-Commercial Use" means personal, educational, hobby, or evaluation use
+that does NOT generate revenue, profit, or commercial advantage.
+
+"Commercial Use" means any use of the Software that:
+- generates revenue (directly or indirectly)
+- is used in a paid product, service, or client work
+- is used within a business, organization, or production environment
+
+-------------------------------------------------------
+2. PERMITTED USE (FREE)
+-------------------------------------------------------
+
+You are granted a free, non-exclusive, non-transferable license to:
+
+- Use the Software for Non-Commercial Use
+- Modify the Software for personal or internal projects
+- Study, learn from, and experiment with the Software
+
+-------------------------------------------------------
+3. RESTRICTIONS
+-------------------------------------------------------
+
+You MAY NOT:
+
+- Use the Software for Commercial Use without a valid Commercial License
+- Sell, sublicense, or redistribute the Software as a standalone product
+- Repackage the Software as a competing engine, framework, or toolkit
+- Remove or alter copyright, branding, or attribution notices
+
+-------------------------------------------------------
+4. COMMERCIAL LICENSE
+-------------------------------------------------------
+
+To use this Software for Commercial Use, you must purchase a valid
+Commercial License from the official source.
+
+A Commercial License grants you the right to:
+
+- Use the Software in commercial products or services
+- Distribute applications built using the Software
+
+Commercial Licenses may include additional terms, support, or features.
+
+-------------------------------------------------------
+5. OWNERSHIP
+-------------------------------------------------------
+
+The Software is licensed, not sold.
+
+All rights, title, and interest in the Software remain the exclusive
+property of the original author.
+
+-------------------------------------------------------
+6. NO WARRANTY
+-------------------------------------------------------
+
+The Software is provided "as is", without warranty of any kind,
+express or implied.
+
+You assume all risks associated with its use.
+
+-------------------------------------------------------
+7. TERMINATION
+-------------------------------------------------------
+
+This license is automatically terminated if you violate any of its terms.
+
+Upon termination, you must cease all use of the Software.
+
+-------------------------------------------------------
+8. CONTACT
+-------------------------------------------------------
+
+For Commercial Licensing, contact:
+antago@icloud.com
+Join the Discord: http://discord.gg/eyRqghNt3q
+Game Engine Support: https://mongerz.net/
+
+********************************************************
+END OF LICENSE
+********************************************************
