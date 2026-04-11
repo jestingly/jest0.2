@@ -1,3 +1,8 @@
+//-------------------------------------------------------
+// JEST ® All Rights Reserved
+// Antago (God of Gravity), author of Graal2001 & Destiny
+// Copyright ® 1999-2026
+//-------------------------------------------------------
 console.log( 'jestAlert: js/apps/jest/clients/plugins/creator/online/cloud.plugin.js loaded' );
 
 // Cloud handling plugin (for files).

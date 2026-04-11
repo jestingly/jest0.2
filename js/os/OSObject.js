@@ -1,3 +1,8 @@
+//-------------------------------------------------------
+// JEST ® All Rights Reserved
+// Antago (God of Gravity), author of Graal2001 & Destiny
+// Copyright ® 1999-2026
+//-------------------------------------------------------
 console.log( 'jestAlert: js/os/OSObject.js loaded' );
 
 // Jest object base class for registering an instance as a part of the Jest system.
