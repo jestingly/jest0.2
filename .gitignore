@@ -3,3 +3,5 @@ workshop/
 node_modules/
 dist/
 .env
+apply_copyright.py
+copyright_notice.txt
