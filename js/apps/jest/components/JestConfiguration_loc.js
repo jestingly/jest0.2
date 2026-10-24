@@ -13,7 +13,7 @@ class JestConfiguration extends JestSavable {
 	// Media & Web Setting(s)
 	// --------------------------------
 	// File(s) & resource(s)
-	server			= 'ws://192.168.1.109:8080'; // server websocket (e.g. local IP to connect to)
+	server			= 'ws://#.#.#.#:8080'; // server websocket (e.g. local IP to connect to)
 	// Resource [string] value of path to webfiles root: images, sounds, etc.
 	webfiles		= `${BASE_PATH}webfiles/files`;
 	root			= BASE_PATH;
